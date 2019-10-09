@@ -7,25 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A3A3B2F234D546700D91338 /* TripController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3A3B2E234D546700D91338 /* TripController.swift */; };
+		6A3A3B32234D72E700D91338 /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3A3B31234D72E700D91338 /* StateHelper.swift */; };
 		6A6C6EAE234A99FE003B42DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6EAD234A99FE003B42DC /* AppDelegate.swift */; };
 		6A6C6EB0234A99FE003B42DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6EAF234A99FE003B42DC /* SceneDelegate.swift */; };
-		6A6C6EB2234A99FE003B42DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6EB1234A99FE003B42DC /* ViewController.swift */; };
 		6A6C6EB5234A99FE003B42DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A6C6EB3234A99FE003B42DC /* Main.storyboard */; };
 		6A6C6EB8234A99FE003B42DC /* PrepareForTakeOff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6EB6234A99FE003B42DC /* PrepareForTakeOff.xcdatamodeld */; };
 		6A6C6EBA234A9A00003B42DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A6C6EB9234A9A00003B42DC /* Assets.xcassets */; };
 		6A6C6EBD234A9A00003B42DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A6C6EBB234A9A00003B42DC /* LaunchScreen.storyboard */; };
+		6A6C6EC6234AD0B8003B42DC /* DestinationInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6EC5234AD0B8003B42DC /* DestinationInfoController.swift */; };
+		6A6C6EC8234BA423003B42DC /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6EC7234BA423003B42DC /* Trip.swift */; };
+		6A6C6ECC234BA834003B42DC /* TravelLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6ECB234BA834003B42DC /* TravelLocation.swift */; };
+		6A6C6ECE234BAC14003B42DC /* DestinationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6ECD234BAC14003B42DC /* DestinationInfo.swift */; };
+		6A6C6ED0234BF72D003B42DC /* PointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6ECF234BF72D003B42DC /* PointOfInterest.swift */; };
+		6A6C6ED2234BF923003B42DC /* PointOfInterestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6ED1234BF923003B42DC /* PointOfInterestController.swift */; };
+		6A6C6ED4234C188E003B42DC /* history.city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A6C6ED3234C188E003B42DC /* history.city.list.json */; };
+		6A6C6ED6234C1E95003B42DC /* CityResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6ED5234C1E95003B42DC /* CityResults.swift */; };
+		6A6C6ED8234C2346003B42DC /* CityResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6ED7234C2346003B42DC /* CityResultsController.swift */; };
+		6A6C6EDA234C3355003B42DC /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6ED9234C3355003B42DC /* Weather.swift */; };
+		6A6C6EDC234C386A003B42DC /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6EDB234C386A003B42DC /* WeatherController.swift */; };
+		6A6C6EDE234C4A57003B42DC /* CurrencyExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6EDD234C4A57003B42DC /* CurrencyExchangeRate.swift */; };
+		6A6C6EE0234C4E5B003B42DC /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6EDF234C4E5B003B42DC /* LocationController.swift */; };
+		6A6C6EE2234C5027003B42DC /* CurrencyExchangeCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6EE1234C5027003B42DC /* CurrencyExchangeCodes.swift */; };
+		6A6C6EE4234D1DD0003B42DC /* CurrencyCodesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6EE3234D1DD0003B42DC /* CurrencyCodesHelper.swift */; };
+		6A6C6EE6234D39EB003B42DC /* CurrencyExchangeCodesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6EE5234D39EB003B42DC /* CurrencyExchangeCodesController.swift */; };
+		6A6C6EE8234D48BD003B42DC /* CurrencyExchangeRateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C6EE7234D48BD003B42DC /* CurrencyExchangeRateController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A3A3B2E234D546700D91338 /* TripController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripController.swift; sourceTree = "<group>"; };
+		6A3A3B31234D72E700D91338 /* StateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHelper.swift; sourceTree = "<group>"; };
 		6A6C6EAA234A99FE003B42DC /* PrepareForTakeOff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrepareForTakeOff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A6C6EAD234A99FE003B42DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A6C6EAF234A99FE003B42DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6A6C6EB1234A99FE003B42DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6A6C6EB4234A99FE003B42DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6A6C6EB7234A99FE003B42DC /* PrepareForTakeOff.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrepareForTakeOff.xcdatamodel; sourceTree = "<group>"; };
 		6A6C6EB9234A9A00003B42DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A6C6EBC234A9A00003B42DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A6C6EBE234A9A00003B42DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A6C6EC5234AD0B8003B42DC /* DestinationInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationInfoController.swift; sourceTree = "<group>"; };
+		6A6C6EC7234BA423003B42DC /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		6A6C6ECB234BA834003B42DC /* TravelLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelLocation.swift; sourceTree = "<group>"; };
+		6A6C6ECD234BAC14003B42DC /* DestinationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationInfo.swift; sourceTree = "<group>"; };
+		6A6C6ECF234BF72D003B42DC /* PointOfInterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterest.swift; sourceTree = "<group>"; };
+		6A6C6ED1234BF923003B42DC /* PointOfInterestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterestController.swift; sourceTree = "<group>"; };
+		6A6C6ED3234C188E003B42DC /* history.city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = history.city.list.json; sourceTree = "<group>"; };
+		6A6C6ED5234C1E95003B42DC /* CityResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityResults.swift; sourceTree = "<group>"; };
+		6A6C6ED7234C2346003B42DC /* CityResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityResultsController.swift; sourceTree = "<group>"; };
+		6A6C6ED9234C3355003B42DC /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		6A6C6EDB234C386A003B42DC /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
+		6A6C6EDD234C4A57003B42DC /* CurrencyExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeRate.swift; sourceTree = "<group>"; };
+		6A6C6EDF234C4E5B003B42DC /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		6A6C6EE1234C5027003B42DC /* CurrencyExchangeCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeCodes.swift; sourceTree = "<group>"; };
+		6A6C6EE3234D1DD0003B42DC /* CurrencyCodesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCodesHelper.swift; sourceTree = "<group>"; };
+		6A6C6EE5234D39EB003B42DC /* CurrencyExchangeCodesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeCodesController.swift; sourceTree = "<group>"; };
+		6A6C6EE7234D48BD003B42DC /* CurrencyExchangeRateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeRateController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +75,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A3A3B30234D552B00D91338 /* Helper+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6A6C6EE3234D1DD0003B42DC /* CurrencyCodesHelper.swift */,
+				6A3A3B31234D72E700D91338 /* StateHelper.swift */,
+			);
+			path = "Helper+Extensions";
+			sourceTree = "<group>";
+		};
 		6A6C6EA1234A99FE003B42DC = {
 			isa = PBXGroup;
 			children = (
@@ -58,16 +103,57 @@
 		6A6C6EAC234A99FE003B42DC /* PrepareForTakeOff */ = {
 			isa = PBXGroup;
 			children = (
+				6A6C6EB3234A99FE003B42DC /* Main.storyboard */,
+				6A6C6EC4234A9DD8003B42DC /* Resources */,
+				6A6C6EB6234A99FE003B42DC /* PrepareForTakeOff.xcdatamodeld */,
+				6A3A3B30234D552B00D91338 /* Helper+Extensions */,
+				6A6C6EC9234BA7A8003B42DC /* Models */,
+				6A6C6ECA234BA7E5003B42DC /* Model Controllers */,
+			);
+			path = PrepareForTakeOff;
+			sourceTree = "<group>";
+		};
+		6A6C6EC4234A9DD8003B42DC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				6A6C6EAD234A99FE003B42DC /* AppDelegate.swift */,
 				6A6C6EAF234A99FE003B42DC /* SceneDelegate.swift */,
-				6A6C6EB1234A99FE003B42DC /* ViewController.swift */,
-				6A6C6EB3234A99FE003B42DC /* Main.storyboard */,
+				6A6C6ED3234C188E003B42DC /* history.city.list.json */,
 				6A6C6EB9234A9A00003B42DC /* Assets.xcassets */,
 				6A6C6EBB234A9A00003B42DC /* LaunchScreen.storyboard */,
 				6A6C6EBE234A9A00003B42DC /* Info.plist */,
-				6A6C6EB6234A99FE003B42DC /* PrepareForTakeOff.xcdatamodeld */,
 			);
-			path = PrepareForTakeOff;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6A6C6EC9234BA7A8003B42DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6A6C6EC7234BA423003B42DC /* Trip.swift */,
+				6A6C6ECB234BA834003B42DC /* TravelLocation.swift */,
+				6A6C6EE1234C5027003B42DC /* CurrencyExchangeCodes.swift */,
+				6A6C6ECD234BAC14003B42DC /* DestinationInfo.swift */,
+				6A6C6ECF234BF72D003B42DC /* PointOfInterest.swift */,
+				6A6C6ED5234C1E95003B42DC /* CityResults.swift */,
+				6A6C6ED9234C3355003B42DC /* Weather.swift */,
+				6A6C6EDD234C4A57003B42DC /* CurrencyExchangeRate.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6A6C6ECA234BA7E5003B42DC /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6A6C6EC5234AD0B8003B42DC /* DestinationInfoController.swift */,
+				6A6C6ED1234BF923003B42DC /* PointOfInterestController.swift */,
+				6A6C6ED7234C2346003B42DC /* CityResultsController.swift */,
+				6A6C6EDB234C386A003B42DC /* WeatherController.swift */,
+				6A6C6EDF234C4E5B003B42DC /* LocationController.swift */,
+				6A6C6EE5234D39EB003B42DC /* CurrencyExchangeCodesController.swift */,
+				6A6C6EE7234D48BD003B42DC /* CurrencyExchangeRateController.swift */,
+				6A3A3B2E234D546700D91338 /* TripController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A6C6EBD234A9A00003B42DC /* LaunchScreen.storyboard in Resources */,
+				6A6C6ED4234C188E003B42DC /* history.city.list.json in Resources */,
 				6A6C6EBA234A9A00003B42DC /* Assets.xcassets in Resources */,
 				6A6C6EB5234A99FE003B42DC /* Main.storyboard in Resources */,
 			);
@@ -141,10 +228,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6C6EC8234BA423003B42DC /* Trip.swift in Sources */,
 				6A6C6EB8234A99FE003B42DC /* PrepareForTakeOff.xcdatamodeld in Sources */,
-				6A6C6EB2234A99FE003B42DC /* ViewController.swift in Sources */,
+				6A6C6EE2234C5027003B42DC /* CurrencyExchangeCodes.swift in Sources */,
 				6A6C6EAE234A99FE003B42DC /* AppDelegate.swift in Sources */,
+				6A6C6EC6234AD0B8003B42DC /* DestinationInfoController.swift in Sources */,
+				6A6C6EDA234C3355003B42DC /* Weather.swift in Sources */,
+				6A6C6ED6234C1E95003B42DC /* CityResults.swift in Sources */,
+				6A6C6EE4234D1DD0003B42DC /* CurrencyCodesHelper.swift in Sources */,
+				6A6C6EDC234C386A003B42DC /* WeatherController.swift in Sources */,
+				6A6C6ECC234BA834003B42DC /* TravelLocation.swift in Sources */,
+				6A6C6ED2234BF923003B42DC /* PointOfInterestController.swift in Sources */,
+				6A6C6EDE234C4A57003B42DC /* CurrencyExchangeRate.swift in Sources */,
+				6A6C6EE6234D39EB003B42DC /* CurrencyExchangeCodesController.swift in Sources */,
+				6A6C6ED8234C2346003B42DC /* CityResultsController.swift in Sources */,
+				6A6C6EE8234D48BD003B42DC /* CurrencyExchangeRateController.swift in Sources */,
+				6A6C6ED0234BF72D003B42DC /* PointOfInterest.swift in Sources */,
 				6A6C6EB0234A99FE003B42DC /* SceneDelegate.swift in Sources */,
+				6A6C6EE0234C4E5B003B42DC /* LocationController.swift in Sources */,
+				6A3A3B2F234D546700D91338 /* TripController.swift in Sources */,
+				6A6C6ECE234BAC14003B42DC /* DestinationInfo.swift in Sources */,
+				6A3A3B32234D72E700D91338 /* StateHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +394,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 899TSM5Z6B;
-				INFOPLIST_FILE = PrepareForTakeOff/Info.plist;
+				INFOPLIST_FILE = PrepareForTakeOff/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,7 +412,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 899TSM5Z6B;
-				INFOPLIST_FILE = PrepareForTakeOff/Info.plist;
+				INFOPLIST_FILE = PrepareForTakeOff/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
