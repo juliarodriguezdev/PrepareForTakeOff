@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pkb-v1-T4a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vkp-nh-mML">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -14,7 +14,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HjK-51-01c">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="B1w-zN-hoJ" kind="relationship" relationship="viewControllers" id="vA2-6j-ekA"/>
@@ -32,7 +31,7 @@
         <scene sceneID="E6g-p3-Q25">
             <objects>
                 <viewControllerPlaceholder storyboardName="Trip" id="B1w-zN-hoJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Trips" id="C3a-0z-1xH"/>
+                    <tabBarItem key="tabBarItem" title="" image="noun_LuggageApp" id="C3a-0z-1xH"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNB-RI-PkV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,7 +41,7 @@
         <scene sceneID="Bpu-IY-htH">
             <objects>
                 <viewControllerPlaceholder storyboardName="DestinationInfo" id="GDs-Cz-6FY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Destination" id="tJe-ZA-Lmt"/>
+                    <tabBarItem key="tabBarItem" title="" image="noun_Round trip_492593" id="tJe-ZA-Lmt"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drN-0v-zlx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -52,7 +51,7 @@
         <scene sceneID="FIT-eW-HUi">
             <objects>
                 <viewControllerPlaceholder storyboardName="PointOfInterest" id="r8N-bU-xGu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Point of Interest" id="VcK-5v-AKX"/>
+                    <tabBarItem key="tabBarItem" title="" image="noun_Map_2643297" id="VcK-5v-AKX"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXs-kw-OT4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,21 +77,10 @@
             </objects>
             <point key="canvasLocation" x="301" y="184"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="rOR-jC-gjc">
-            <objects>
-                <navigationController id="pkb-v1-T4a" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DtH-BY-BXv">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Vkp-nh-mML" kind="relationship" relationship="rootViewController" id="eLH-SY-ooH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yQ2-jS-QnD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1607" y="-22"/>
-        </scene>
     </scenes>
+    <resources>
+        <image name="noun_LuggageApp" width="28" height="43"/>
+        <image name="noun_Map_2643297" width="35" height="34"/>
+        <image name="noun_Round trip_492593" width="42" height="35"/>
+    </resources>
 </document>
