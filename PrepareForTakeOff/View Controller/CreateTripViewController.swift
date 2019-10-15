@@ -38,7 +38,18 @@ class CreateTripViewController: UIViewController {
     var countryNames: [String] {
         // Turns cities.countries into a Set, which removes all duplicates, then turns it back into an Array and sorts alphabetically.
         // cities = $0
-        return Array(Set(TripController.shared.cities.map({ $0.country }))).sorted()
+        //return Array(Set(TripController.shared.cities.compactMap({ $0.country }))).sorted()
+        let countries = Array(Set(TripController.shared.cities.filter({ $0.country != "US"}).map({$0.country}))).sorted()
+//        let countryNameList = Array(Set(TripController.shared.cities.filter( {$0.country != "US"} ).compactMap({NSLocale.current.localizedString(forRegionCode: $0.country)})))
+        
+//        if let objectIndex = object.first {
+//            let indexOfCountryCode = Locale.isoRegionCodes.firstIndex(of: objectIndex) ?? 0
+//            // 2 Letter region code
+//            let countryName = Locale.isoRegionCodes[indexOfCountryCode]
+//            let countryDisplayName = NSLocale.current.localizedString(forRegionCode: countryName)
+//        }
+        //return countryNameList.sorted()
+        return countries
     }
     var unitedStatesCityNames: [String] {
         let filteredCities = Array(Set(TripController.shared.cities.filter( {$0.country == "US"} ).map({$0.name}))).sorted()
@@ -102,6 +113,11 @@ class CreateTripViewController: UIViewController {
     
     @objc func citySearching(textField: UITextField) {
         isCitySearching = true
+        if countrySelection.selectedSegmentIndex == 0 {
+            
+        } else {
+            
+        }
         cityStackView.isHidden = false
         isPlaceHolderSearching = false
         //placeHolderStackView.isHidden = true
@@ -114,7 +130,15 @@ class CreateTripViewController: UIViewController {
         placeHolderStackView.isHidden = false
         isCitySearching = false
         cityStackView.isHidden = true
-        placeHolderSearchResults = TripController.shared.fetchStates()
+        // states
+        if countrySelection.selectedSegmentIndex == 0 {
+            placeHolderSearchResults = TripController.shared.fetchStates()
+        // abroad
+        } else {
+            let countryFullNames = countryNames.compactMap({Locale.current.localizedString(forRegionCode: $0)})
+
+            placeHolderSearchResults = countryFullNames
+        }
     }
     
     @IBAction func tapGestureRecognizer(_ sender: UITapGestureRecognizer) {
@@ -182,6 +206,7 @@ class CreateTripViewController: UIViewController {
 }
 
 extension CreateTripViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 0
         
@@ -214,36 +239,57 @@ extension CreateTripViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == self.cityTableView {
             let cell = tableView.cellForRow(at: indexPath)
-            let cityText = cell?.textLabel?.text
+            guard let cityText = cell?.textLabel?.text, !cityText.isEmpty else { return }
             cityTextField.text = cityText
-            // TODO: search in JSON file, for the city and populate state
-            
-            // placeholder.text = resultCountry
-        } else if tableView == self.placeHolderTableView {
+            print(cityText)
+            if countrySelection.selectedSegmentIndex == 1 {
+                // 2 Letter Country Code
+                let object = TripController.shared.cities.filter({$0.name == cityText }).map({ $0.country})
+                if let objectIndex = object.first {
+                    let indexOfCountryCode = Locale.isoRegionCodes.firstIndex(of: objectIndex) ?? 0
+                    // 2 Letter region code
+                    let countryName = Locale.isoRegionCodes[indexOfCountryCode]
+                    let countryDisplayName = NSLocale.current.localizedString(forRegionCode: countryName)
+                    isPlaceHolderSearching = true
+                    placeHolderTextField.text = countryDisplayName
+                    
+                }
+            }
+        } // end of city table view
+        else if tableView == self.placeHolderTableView {
             let cell = tableView.cellForRow(at: indexPath)
-            let placeHolderText = cell?.textLabel?.text
+            guard let placeHolderText = cell?.textLabel?.text, !placeHolderText.isEmpty else { return }
             placeHolderTextField.text = placeHolderText
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // USA - Cities, not searching
         if tableView == self.cityTableView, countrySelection.selectedSegmentIndex == 0, isCitySearching == false {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
             let city = unitedStatesCityNames[indexPath.row]
             cell.textLabel?.text = city
             return cell
+            // USA - Cities, is searching
+        } else if tableView == self.cityTableView, countrySelection.selectedSegmentIndex == 0, isCitySearching == true {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
+            let city = citySearchResults[indexPath.row]
+            cell.textLabel?.text = city
+            return cell
+         // Abroad = Cities, not searching
         } else if tableView == self.cityTableView, countrySelection.selectedSegmentIndex == 1, isCitySearching == false {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
             let city = abroadCityNames[indexPath.row]
             cell.textLabel?.text = city
             return cell
-            
-        } else if tableView == self.cityTableView, isCitySearching == true {
+        // Abroad - Cities, is searching
+        } else if tableView == self.cityTableView, countrySelection.selectedSegmentIndex == 1, isCitySearching == true {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
             let city = citySearchResults[indexPath.row]
             cell.textLabel?.text = city
             return cell
+            // USA - All States, not searching
         } else if tableView == self.placeHolderTableView, countrySelection.selectedSegmentIndex == 0, isPlaceHolderSearching == false {
             let cell = tableView.dequeueReusableCell(withIdentifier: "placeHolderCell", for: indexPath)
             // key
@@ -251,11 +297,13 @@ extension CreateTripViewController: UITableViewDelegate, UITableViewDataSource {
             //cell.textLabel?.text = StateHelper.states[state]
             cell.textLabel?.text = state
             return cell
+            // USA - is searching States
         } else if tableView == self.placeHolderTableView, countrySelection.selectedSegmentIndex == 0, isPlaceHolderSearching == true {
             let cell = tableView.dequeueReusableCell(withIdentifier: "placeHolderCell", for: indexPath)
             let searchedState = placeHolderSearchResults[indexPath.row]
             cell.textLabel?.text = searchedState
             return cell
+            // Abroad - not searching, all countries
         } else if tableView == self.placeHolderTableView, countrySelection.selectedSegmentIndex == 1, isPlaceHolderSearching == false {
             let cell = tableView.dequeueReusableCell(withIdentifier: "placeHolderCell", for: indexPath)
             // 2 Letter country code
@@ -268,12 +316,14 @@ extension CreateTripViewController: UITableViewDelegate, UITableViewDataSource {
             //cell.textLabel?.text = country.country
             cell.textLabel?.text = countryDisplayName
             return cell
+            // Abroad - searching, search countries
         } else if tableView == self.placeHolderTableView, countrySelection.selectedSegmentIndex == 1, isPlaceHolderSearching == true {
             let cell = tableView.dequeueReusableCell(withIdentifier: "placeHolderCell", for: indexPath)
-            let countryCode = placeHolderSearchResults[indexPath.row]
-            let index = Locale.isoRegionCodes.firstIndex(of: countryCode) ?? 0
-            let country = Locale.isoRegionCodes[index]
-            let countryName = Locale.current.localizedString(forRegionCode: country)
+            //let countryCode = placeHolderSearchResults[indexPath.row]
+            //let index = Locale.isoRegionCodes.firstIndex(of: countryCode) ?? 0
+           // let country = Locale.isoRegionCodes[index]
+            //let countryName = Locale.current.localizedString(forRegionCode: country)
+            let countryName = placeHolderSearchResults[indexPath.row]
             cell.textLabel?.text = countryName
             return cell
         } else {
@@ -293,19 +343,29 @@ extension CreateTripViewController: UITextFieldDelegate {
         guard let searchText = textField.text?.lowercased() else { return }
         let count = searchText.count
         print(searchText)
+        
         if isCitySearching == true, countrySelection.selectedSegmentIndex == 0 {
             citySearchResults = unitedStatesCityNames.filter({$0.prefix(count).lowercased() == searchText}).sorted()
+            //citySearchResults = unitedStatesCityNames.filter({$0.prefix(count).lowercased() == searchText}).sorted()
             self.cityTableView.reloadData()
+            
         } else if isCitySearching == true, countrySelection.selectedSegmentIndex == 1 {
             citySearchResults = abroadCityNames.filter({$0.prefix(count).lowercased() == searchText}).sorted()
             self.cityTableView.reloadData()
+            
         } else if isPlaceHolderSearching == true, countrySelection.selectedSegmentIndex == 0 {
             placeHolderSearchResults = TripController.shared.fetchStates().filter({$0.prefix(count).lowercased() == searchText}).sorted()
             self.placeHolderTableView.reloadData()
+        
         } else if isPlaceHolderSearching == true, countrySelection.selectedSegmentIndex == 1 {
-            placeHolderSearchResults = countryNames.filter({$0.prefix(count).lowercased() == searchText}).sorted()
+            // needs to be the full name
+            let countryFullNames = countryNames.compactMap({Locale.current.localizedString(forRegionCode: $0)})
+            //print(countryFullNames)
+            placeHolderSearchResults = countryFullNames.filter({$0.prefix(count).lowercased() == searchText}).sorted()
             self.placeHolderTableView.reloadData()
         }
         
     }
 }
+
+

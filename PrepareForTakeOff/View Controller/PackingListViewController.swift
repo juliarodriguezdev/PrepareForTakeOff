@@ -18,12 +18,18 @@ class PackingListViewController: UIViewController {
         super.viewDidLoad()
         packingTableView.delegate = self
         packingTableView.dataSource = self
-        self.title = trip?.name
-
+        guard let trip = trip  else { return }
+        self.title = "\(trip.name!) Trip"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.packingTableView.reloadData()
     }
     
     @IBAction func addPackingItemTapped(_ sender: UIBarButtonItem) {
         // navigate to the packing bank VC
+        
     }
     
     @IBAction func editTripButtonTapped(_ sender: UIButton) {
@@ -31,15 +37,16 @@ class PackingListViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let destinationVC = segue.destination as? PackingWordBankViewController else { return }
+        let trip = self.trip
+        destinationVC.trip = trip
     }
-    */
+
 
 }
 
@@ -69,6 +76,17 @@ extension PackingListViewController: UITableViewDelegate, UITableViewDataSource 
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     // add did select row a func to toggle the isChecked Bool on/off, and upate the checkbox / checkmark
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let packingComponent = trip?.packingList?[indexPath.row] as? PackingComponent {
+            PackingComponentController.shared.toggleIsCompleteFor(packingComponent: packingComponent)
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
+    }
     
 }

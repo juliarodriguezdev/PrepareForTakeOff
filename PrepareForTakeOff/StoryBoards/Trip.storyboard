@@ -103,7 +103,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="685"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="packingListCell" rowHeight="60" id="3Oa-JR-UsB" customClass="PackingListTableViewCell" customModule="PrepareForTakeOff" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="packingListCell" rowHeight="60" id="3Oa-JR-UsB" customClass="PackingListTableViewCell" customModule="PrepareForTakeOff" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Oa-JR-UsB" id="eUh-k8-9bS">
@@ -113,17 +113,21 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WaR-Uq-5V9">
                                                     <rect key="frame" x="20" y="11" width="374" height="38"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kor-yf-98H">
-                                                            <rect key="frame" x="0.0" y="-1" width="54" height="39"/>
-                                                            <state key="normal" title="Check"/>
+                                                        <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kor-yf-98H">
+                                                            <rect key="frame" x="0.0" y="-1" width="41.5" height="39"/>
+                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0L-dj-aAp">
-                                                            <rect key="frame" x="62" y="-1" width="312" height="39"/>
+                                                            <rect key="frame" x="49.5" y="-1" width="324.5" height="39"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Kor-yf-98H" firstAttribute="centerY" secondItem="WaR-Uq-5V9" secondAttribute="centerY" id="CCQ-1p-Q92"/>
+                                                        <constraint firstItem="G0L-dj-aAp" firstAttribute="centerY" secondItem="WaR-Uq-5V9" secondAttribute="centerY" id="UHN-oq-Yxo"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -135,7 +139,7 @@
                                         </tableViewCellContentView>
                                         <constraints>
                                             <constraint firstItem="Kor-yf-98H" firstAttribute="height" secondItem="3Oa-JR-UsB" secondAttribute="height" multiplier="0.65" id="Wi1-oS-2BB"/>
-                                            <constraint firstItem="Kor-yf-98H" firstAttribute="width" secondItem="3Oa-JR-UsB" secondAttribute="width" multiplier="0.13" id="gB9-Nq-Gc5"/>
+                                            <constraint firstItem="Kor-yf-98H" firstAttribute="width" secondItem="3Oa-JR-UsB" secondAttribute="width" multiplier="0.1" id="gB9-Nq-Gc5"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="isCheckedButton" destination="Kor-yf-98H" id="cDK-B4-woe"/>
@@ -194,8 +198,8 @@
                                 <state key="normal" title="Add to Packing List"/>
                                 <connections>
                                     <action selector="addButton:" destination="ybb-IL-fVN" eventType="touchUpInside" id="xvd-d2-TuO"/>
-                                    <action selector="addButtonTapped:" destination="rFb-OE-870" eventType="touchUpInside" id="0a1-ft-DJF"/>
                                     <action selector="addButtonTapped:" destination="ybb-IL-fVN" eventType="touchUpInside" id="jgf-c6-yZx"/>
+                                    <action selector="addToPackingListButtonTapped:" destination="rFb-OE-870" eventType="touchUpInside" id="02b-zl-2nJ"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="x5w-dv-uYq">
@@ -249,7 +253,11 @@
                                     <segue destination="5Uw-Lw-wat" kind="show" identifier="toCommonItem" id="rO5-F8-ssH"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="add" id="UhL-Af-L7y"/>
+                            <barButtonItem systemItem="add" id="UhL-Af-L7y">
+                                <connections>
+                                    <action selector="addBarButtonTapped:" destination="rFb-OE-870" id="b8y-Xv-ajk"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
