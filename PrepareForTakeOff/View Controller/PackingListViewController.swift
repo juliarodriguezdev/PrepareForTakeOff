@@ -18,6 +18,7 @@ class PackingListViewController: UIViewController {
         super.viewDidLoad()
         packingTableView.delegate = self
         packingTableView.dataSource = self
+        self.tabBarController?.tabBar.isHidden = false
         guard let trip = trip  else { return }
         self.title = "\(trip.name!) Trip"
     }

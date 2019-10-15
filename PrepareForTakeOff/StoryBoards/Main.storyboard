@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vkp-nh-mML">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vkp-nh-mML">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,6 +14,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HjK-51-01c">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="selectedImageTintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="B1w-zN-hoJ" kind="relationship" relationship="viewControllers" id="vA2-6j-ekA"/>
@@ -31,7 +32,7 @@
         <scene sceneID="E6g-p3-Q25">
             <objects>
                 <viewControllerPlaceholder storyboardName="Trip" id="B1w-zN-hoJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="noun_LuggageApp" id="C3a-0z-1xH"/>
+                    <tabBarItem key="tabBarItem" title="Trip" id="C3a-0z-1xH"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNB-RI-PkV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,7 +42,7 @@
         <scene sceneID="Bpu-IY-htH">
             <objects>
                 <viewControllerPlaceholder storyboardName="DestinationInfo" id="GDs-Cz-6FY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="noun_Round trip_492593" id="tJe-ZA-Lmt"/>
+                    <tabBarItem key="tabBarItem" title="Dest. 411" id="tJe-ZA-Lmt"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drN-0v-zlx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,7 +52,7 @@
         <scene sceneID="FIT-eW-HUi">
             <objects>
                 <viewControllerPlaceholder storyboardName="PointOfInterest" id="r8N-bU-xGu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="noun_Map_2643297" id="VcK-5v-AKX"/>
+                    <tabBarItem key="tabBarItem" systemItem="topRated" id="VcK-5v-AKX"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXs-kw-OT4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,9 +79,4 @@
             <point key="canvasLocation" x="301" y="184"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="noun_LuggageApp" width="28" height="43"/>
-        <image name="noun_Map_2643297" width="35" height="34"/>
-        <image name="noun_Round trip_492593" width="42" height="35"/>
-    </resources>
 </document>

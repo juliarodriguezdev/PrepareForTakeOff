@@ -18,6 +18,7 @@ class TripViewController: UIViewController {
        // title = "Trips"
         tripTableView.delegate = self
         tripTableView.dataSource = self
+        self.tabBarController?.tabBar.isHidden = true
         let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTripBarButtonItemTapped(_:)))
         
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
@@ -25,6 +26,7 @@ class TripViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
         tripTableView.reloadData()
     }
     
@@ -38,6 +40,8 @@ class TripViewController: UIViewController {
             let destinationVC = segue.destination as? PackingListViewController else { return }
         let trip = TripController.shared.trips[index.row]
         destinationVC.trip = trip
+        // use to retrieve to populate tab data
+        TripController.shared.tripForAllTabs = trip
     }
     
     

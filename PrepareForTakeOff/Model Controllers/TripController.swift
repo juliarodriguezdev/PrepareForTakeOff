@@ -26,6 +26,8 @@ class TripController {
     
     var cities: [City] = []
     
+    var tripForAllTabs: Trip?
+    
     // CRUD Funcs
     
     // Create
@@ -62,7 +64,10 @@ class TripController {
             print("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
         }
     }
-    
+    // save trip to use across all Tabs
+    func saveTripForAllTabs(trip: Trip) {
+        self.tripForAllTabs = trip
+    }
     
     // City and Country CRUD Func
     var filePath = Bundle.main.url(forResource: "city.list", withExtension: "json")

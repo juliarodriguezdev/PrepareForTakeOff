@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A119D082350D8A40005A838 /* PrepareForTakeOff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A119D062350D8A40005A838 /* PrepareForTakeOff.xcdatamodeld */; };
 		6A119D0A2350E4000005A838 /* PackingWordBankController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A119D092350E4000005A838 /* PackingWordBankController.swift */; };
 		6A119D10235190420005A838 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A119D0F235190420005A838 /* TripTableViewCell.swift */; };
 		6A28D14023541BED00D34ADD /* PackingWordBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A28D13F23541BED00D34ADD /* PackingWordBankViewController.swift */; };
@@ -46,6 +45,7 @@
 		6A80F85D235402D4002B7C97 /* PackingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A80F85C235402D4002B7C97 /* PackingListViewController.swift */; };
 		6A80F85F2354030A002B7C97 /* PackingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A80F85E2354030A002B7C97 /* PackingListTableViewCell.swift */; };
 		6A8FAE4923542788006E6964 /* CommonItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8FAE4823542788006E6964 /* CommonItemCollectionViewCell.swift */; };
+		6A9B7BB2235640630025E989 /* PrepareForTakeOff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A9B7BB0235640630025E989 /* PrepareForTakeOff.xcdatamodeld */; };
 		6ADBD86E234EBB2E00A98A38 /* CreateTripPart2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADBD86D234EBB2E00A98A38 /* CreateTripPart2ViewController.swift */; };
 		6ADBD870234EC67000A98A38 /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = 6ADBD86F234EC67000A98A38 /* city.list.json */; };
 		6ADBD872234EDE0200A98A38 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADBD871234EDE0200A98A38 /* NavigationViewController.swift */; };
@@ -56,7 +56,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6A119D072350D8A40005A838 /* PerpareForTakeOff.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PerpareForTakeOff.xcdatamodel; sourceTree = "<group>"; };
 		6A119D092350E4000005A838 /* PackingWordBankController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingWordBankController.swift; sourceTree = "<group>"; };
 		6A119D0F235190420005A838 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		6A28D13F23541BED00D34ADD /* PackingWordBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingWordBankViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +96,7 @@
 		6A80F85C235402D4002B7C97 /* PackingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListViewController.swift; sourceTree = "<group>"; };
 		6A80F85E2354030A002B7C97 /* PackingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListTableViewCell.swift; sourceTree = "<group>"; };
 		6A8FAE4823542788006E6964 /* CommonItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		6A9B7BB1235640630025E989 /* PrepareForTakeOff.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrepareForTakeOff.xcdatamodel; sourceTree = "<group>"; };
 		6ADBD86D234EBB2E00A98A38 /* CreateTripPart2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripPart2ViewController.swift; sourceTree = "<group>"; };
 		6ADBD86F234EC67000A98A38 /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.list.json; sourceTree = "<group>"; };
 		6ADBD871234EDE0200A98A38 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -242,7 +242,7 @@
 				6A3A3B44234E3F5300D91338 /* Trip+Convenience.swift */,
 				6ADBD8752350530B00A98A38 /* PackingComponent+Convenience.swift */,
 				6ADBD8792350543400A98A38 /* PackingWordBank+Convenience.swift */,
-				6A119D062350D8A40005A838 /* PrepareForTakeOff.xcdatamodeld */,
+				6A9B7BB0235640630025E989 /* PrepareForTakeOff.xcdatamodeld */,
 				6A3A3B40234DA2FF00D91338 /* REST API Models */,
 			);
 			path = Models;
@@ -345,6 +345,7 @@
 				6ADBD872234EDE0200A98A38 /* NavigationViewController.swift in Sources */,
 				6A3A3B45234E3F5300D91338 /* Trip+Convenience.swift in Sources */,
 				6A6C6EAE234A99FE003B42DC /* AppDelegate.swift in Sources */,
+				6A9B7BB2235640630025E989 /* PrepareForTakeOff.xcdatamodeld in Sources */,
 				6A6C6EC6234AD0B8003B42DC /* DestinationInfoController.swift in Sources */,
 				6A3A3B49234E452200D91338 /* DateFormatter.swift in Sources */,
 				6A5A4321235422A9003C37DC /* CommonPackingItemsViewController.swift in Sources */,
@@ -353,7 +354,6 @@
 				6A80F85F2354030A002B7C97 /* PackingListTableViewCell.swift in Sources */,
 				6ADBD8762350530B00A98A38 /* PackingComponent+Convenience.swift in Sources */,
 				6A6C6EDA234C3355003B42DC /* Weather.swift in Sources */,
-				6A119D082350D8A40005A838 /* PrepareForTakeOff.xcdatamodeld in Sources */,
 				6A3A3B4E234E8E7400D91338 /* CreateTripViewController.swift in Sources */,
 				6A80F85D235402D4002B7C97 /* PackingListViewController.swift in Sources */,
 				6A6C6ED6234C1E95003B42DC /* CityResults.swift in Sources */,
@@ -574,13 +574,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		6A119D062350D8A40005A838 /* PrepareForTakeOff.xcdatamodeld */ = {
+		6A9B7BB0235640630025E989 /* PrepareForTakeOff.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				6A119D072350D8A40005A838 /* PerpareForTakeOff.xcdatamodel */,
+				6A9B7BB1235640630025E989 /* PrepareForTakeOff.xcdatamodel */,
 			);
-			currentVersion = 6A119D072350D8A40005A838 /* PerpareForTakeOff.xcdatamodel */;
-			path = PrepareForTakeOff.xcdatamodeld;
+			currentVersion = 6A9B7BB1235640630025E989 /* PrepareForTakeOff.xcdatamodel */;
+			name = PrepareForTakeOff.xcdatamodeld;
+			path = "../../../../../Downloads/PrepareForTakeOff-Develop/PrepareForTakeOff/PrepareForTakeOff.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
