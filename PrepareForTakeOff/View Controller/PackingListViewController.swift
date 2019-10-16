@@ -20,7 +20,7 @@ class PackingListViewController: UIViewController {
         packingTableView.dataSource = self
         self.tabBarController?.tabBar.isHidden = false
         guard let trip = trip  else { return }
-        self.title = "\(trip.name!) Trip"
+        self.title = "\(trip.name!) Packing List"
     }
     
     override func viewWillAppear(_ animated: Bool) {

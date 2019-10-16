@@ -20,14 +20,14 @@ class PointOfInterestController {
     
     let baseURL = URL(string: "https://www.triposo.com/api/20190906/poi.json")
     
-    func fetchPointOfInterestForCountry(selected userCountryCode: String, completion: @escaping ([PointOfInterest]?) -> Void) {
+    func fetchPointOfInterestForCountry(countryCode: String, completion: @escaping ([PointOfInterest]?) -> Void) {
         
         guard let url = baseURL else { completion(nil); return }
         
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         
         // query items
-        let countryCodeQuery = URLQueryItem(name: "countrycode", value: userCountryCode)
+        let countryCodeQuery = URLQueryItem(name: "countrycode", value: countryCode)
         
         components?.queryItems = [countryCodeQuery]
         
@@ -50,7 +50,7 @@ class PointOfInterestController {
             guard let data = data else { completion(nil); return}
             do {
                let jsonDecoder = JSONDecoder()
-                let topLevelJson = try  jsonDecoder.decode(PoingOfInterestTopLevelJSON.self, from: data)
+                let topLevelJson = try  jsonDecoder.decode(PointOfInterestTopLevelJSON.self, from: data)
                 completion(topLevelJson.results)
             } catch {
                 print("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
@@ -59,7 +59,7 @@ class PointOfInterestController {
             }
         }.resume()
     }
-    func fetchCountryPointOfInterestImage(imageURL: Thumbnail, completion: @escaping (UIImage?) -> Void) {
+    func fetchCountryPointOfInterestImage(imageURL: Medium, completion: @escaping (UIImage?) -> Void) {
         guard let imageURL = URL(string: imageURL.urlAsString) else { return }
         
         URLSession.shared.dataTask(with: imageURL) { (data, _, error) in
@@ -78,15 +78,15 @@ class PointOfInterestController {
         }.resume()
     }
     
-    func fetchPointOfInterestForState(selected userStateCode: String, userCountryCode: String = "US", completion: @escaping ([PointOfInterest]?) -> Void) {
+    func fetchPointOfInterestForState(stateCode: String, countryCode: String = "US", completion: @escaping ([PointOfInterest]?) -> Void) {
         
         guard let url = baseURL else { completion(nil); return }
         
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         
-        let stateCodeQuery = URLQueryItem(name: "us_statecode", value: userStateCode)
+        let stateCodeQuery = URLQueryItem(name: "us_statecode", value: stateCode)
         
-        let countryCodeQuery = URLQueryItem(name: "countrycode", value: userCountryCode)
+        let countryCodeQuery = URLQueryItem(name: "countrycode", value: countryCode)
         
         components?.queryItems = [stateCodeQuery, countryCodeQuery]
         
@@ -108,15 +108,16 @@ class PointOfInterestController {
             guard let data = data else { completion(nil); return }
             do {
                 let jsonDecoder = JSONDecoder()
-                let topLevelJson = try jsonDecoder.decode(PoingOfInterestTopLevelJSON.self, from: data)
+                let topLevelJson = try jsonDecoder.decode(PointOfInterestTopLevelJSON.self, from: data)
                 completion(topLevelJson.results)
             } catch {
-                print("Failed to decode the data")
+                print("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
+
             }
         }.resume()
     }
     
-    func fetchStateDestinationImage(imageURL: Thumbnail, completion: @escaping (UIImage?) -> Void) {
+    func fetchStateDestinationImage(imageURL: Medium, completion: @escaping (UIImage?) -> Void) {
         guard let imageURL = URL(string: imageURL.urlAsString) else { return }
         
         URLSession.shared.dataTask(with: imageURL) { (data, _, error) in

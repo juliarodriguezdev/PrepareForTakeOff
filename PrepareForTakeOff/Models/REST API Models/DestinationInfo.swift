@@ -16,7 +16,7 @@ struct DestinationInfo: Codable {
     let coordinates: Coordinates
     let snippet: String
     let score: Double
-    let images: [Images]?
+    let images: [Images?]
     let type: String
     
     enum CodingKeys: String, CodingKey {
@@ -50,14 +50,14 @@ struct Images: Codable {
 }
 
 struct Sizes: Codable {
-    let thumbnail: Thumbnail
+    let medium: Medium
     
     enum CodingKeys: String, CodingKey {
-        case thumbnail
+        case medium
     }
 }
 
-struct Thumbnail: Codable {
+struct Medium: Codable {
     let urlAsString: String
     
     enum CodingKeys: String, CodingKey {

@@ -42,8 +42,8 @@ class TripViewController: UIViewController {
         destinationVC.trip = trip
         // use to retrieve to populate tab data
         TripController.shared.tripForAllTabs = trip
+        
     }
-    
     
     @objc func addTripBarButtonItemTapped(_ sender: UIBarButtonItem) {
         let storyBoard = UIStoryboard(name: "CreateTrip", bundle: nil)

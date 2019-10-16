@@ -11,7 +11,7 @@
         <!--Point Of Interest at Destination-->
         <scene sceneID="ZAQ-Qg-Asj">
             <objects>
-                <viewController id="y1A-v9-Kf6" sceneMemberID="viewController">
+                <viewController id="y1A-v9-Kf6" customClass="PointOfInterestViewController" customModule="PrepareForTakeOff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xn8-CQ-HN4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,92 +20,113 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="292" id="8Uw-GA-3RC">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="292"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pointOfInterestCell" rowHeight="387" id="8Uw-GA-3RC" customClass="PointOfInterestTableViewCell" customModule="PrepareForTakeOff" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="387"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Uw-GA-3RC" id="LG7-kS-BsD">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="292"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="387"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="9LM-wj-Tev">
-                                                    <rect key="frame" x="20" y="11" width="269" height="43"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="9LM-wj-Tev">
+                                                    <rect key="frame" x="20" y="11" width="269" height="39"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POI name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6c-g8-zW0" userLabel="POI name">
-                                                            <rect key="frame" x="0.0" y="0.0" width="269" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="poi name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6c-g8-zW0" userLabel="POI name">
+                                                            <rect key="frame" x="0.0" y="0.0" width="269" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvh-83-hdE" userLabel="location">
-                                                            <rect key="frame" x="0.0" y="22.5" width="269" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvh-83-hdE" userLabel="location">
+                                                            <rect key="frame" x="0.0" y="19.5" width="269" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="cUS-kp-ceP">
-                                                    <rect key="frame" x="303.5" y="11" width="90.5" height="43"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="cUS-kp-ceP">
+                                                    <rect key="frame" x="297" y="11" width="97" height="50.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQt-wW-u6B" userLabel="score">
-                                                            <rect key="frame" x="0.0" y="0.0" width="90.5" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="97" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="coordinates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kd2-wP-tZw" userLabel="coordinates">
-                                                            <rect key="frame" x="0.0" y="22.5" width="90.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8v-jv-43u">
+                                                            <rect key="frame" x="0.0" y="20.5" width="97" height="30"/>
+                                                            <state key="normal" title="Maps"/>
+                                                            <connections>
+                                                                <action selector="mapButtonTapped:" destination="8Uw-GA-3RC" eventType="touchUpInside" id="ne5-Fz-sqd"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                 </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="snippet" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzQ-lX-dI2" userLabel="snippet">
+                                                    <rect key="frame" x="20" y="58" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eoJ-4g-ds5">
-                                                    <rect key="frame" x="20" y="158.5" width="374" height="122.5"/>
+                                                    <rect key="frame" x="20" y="83.5" width="374" height="292.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nau-pH-TST">
-                                                        <size key="itemSize" width="143" height="122"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="90d-9J-RBr">
+                                                        <size key="itemSize" width="162" height="215"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4gs-Dl-7fn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="143" height="122"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photosCell" id="4gs-Dl-7fn" customClass="PointOfInterestPhotosCollectionViewCell" customModule="PrepareForTakeOff" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="39" width="162" height="215"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fTI-8j-CRZ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="143" height="122"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="215"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dq7-G1-Ryb">
+                                                                        <rect key="frame" x="8" y="11" width="146" height="193.5"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="dq7-G1-Ryb" firstAttribute="height" secondItem="fTI-8j-CRZ" secondAttribute="height" multiplier="0.9" id="Hgl-1g-w8t"/>
+                                                                    <constraint firstItem="dq7-G1-Ryb" firstAttribute="width" secondItem="fTI-8j-CRZ" secondAttribute="width" multiplier="0.9" id="OMq-8A-v0P"/>
+                                                                    <constraint firstItem="dq7-G1-Ryb" firstAttribute="centerX" secondItem="fTI-8j-CRZ" secondAttribute="centerX" id="tiI-8z-pvp"/>
+                                                                    <constraint firstItem="dq7-G1-Ryb" firstAttribute="centerY" secondItem="fTI-8j-CRZ" secondAttribute="centerY" id="wHU-HH-8nQ"/>
+                                                                </constraints>
                                                             </collectionViewCellContentView>
-                                                            <size key="customSize" width="143" height="122"/>
+                                                            <size key="customSize" width="162" height="215"/>
+                                                            <connections>
+                                                                <outlet property="image" destination="dq7-G1-Ryb" id="fXv-Xu-aHN"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="snippet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzQ-lX-dI2" userLabel="snippet">
-                                                    <rect key="frame" x="20" y="62" width="374" height="88.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="fzQ-lX-dI2" secondAttribute="trailing" id="1jC-jv-p5S"/>
                                                 <constraint firstItem="fzQ-lX-dI2" firstAttribute="top" secondItem="9LM-wj-Tev" secondAttribute="bottom" constant="8" id="3aV-p7-hay"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="eoJ-4g-ds5" secondAttribute="trailing" id="I4L-co-AkL"/>
                                                 <constraint firstItem="9LM-wj-Tev" firstAttribute="width" secondItem="LG7-kS-BsD" secondAttribute="width" multiplier="0.65" id="Kb4-4k-tOy"/>
-                                                <constraint firstItem="eoJ-4g-ds5" firstAttribute="top" secondItem="fzQ-lX-dI2" secondAttribute="bottom" constant="8" id="Kge-Zn-6V7"/>
+                                                <constraint firstItem="eoJ-4g-ds5" firstAttribute="top" secondItem="fzQ-lX-dI2" secondAttribute="bottom" constant="5" id="Kge-Zn-6V7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="cUS-kp-ceP" secondAttribute="trailing" id="MeD-iy-R4w"/>
                                                 <constraint firstItem="cUS-kp-ceP" firstAttribute="top" secondItem="LG7-kS-BsD" secondAttribute="topMargin" id="WWf-EQ-cbB"/>
-                                                <constraint firstItem="eoJ-4g-ds5" firstAttribute="height" secondItem="LG7-kS-BsD" secondAttribute="height" multiplier="0.42" id="Wkt-Wz-7qc"/>
+                                                <constraint firstItem="cUS-kp-ceP" firstAttribute="leading" secondItem="9LM-wj-Tev" secondAttribute="trailing" constant="8" id="dGA-Mv-CUt"/>
                                                 <constraint firstItem="9LM-wj-Tev" firstAttribute="top" secondItem="LG7-kS-BsD" secondAttribute="topMargin" id="hW6-gJ-Too"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="eoJ-4g-ds5" secondAttribute="bottom" id="iFw-Ok-UfX"/>
-                                                <constraint firstItem="eoJ-4g-ds5" firstAttribute="centerX" secondItem="LG7-kS-BsD" secondAttribute="centerX" id="mVM-Ad-ly9"/>
                                                 <constraint firstItem="9LM-wj-Tev" firstAttribute="leading" secondItem="LG7-kS-BsD" secondAttribute="leadingMargin" id="pPj-kT-aP6"/>
                                                 <constraint firstItem="eoJ-4g-ds5" firstAttribute="leading" secondItem="LG7-kS-BsD" secondAttribute="leadingMargin" id="pyk-El-amU"/>
                                                 <constraint firstItem="fzQ-lX-dI2" firstAttribute="leading" secondItem="LG7-kS-BsD" secondAttribute="leadingMargin" id="q2S-T4-faW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="locationLabel" destination="Kvh-83-hdE" id="aUk-yV-M1P"/>
+                                            <outlet property="nameLabel" destination="m6c-g8-zW0" id="9vs-G8-dat"/>
+                                            <outlet property="photosCollectionView" destination="eoJ-4g-ds5" id="lmY-eh-Udo"/>
+                                            <outlet property="scoreLabel" destination="ZQt-wW-u6B" id="7WO-Qj-chM"/>
+                                            <outlet property="snippetLabel" destination="fzQ-lX-dI2" id="1NK-9x-Mdy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -121,6 +142,9 @@
                         <viewLayoutGuide key="safeArea" id="ZUl-T6-HlC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Point Of Interest at Destination" id="RJ2-i9-hpF"/>
+                    <connections>
+                        <outlet property="tableView" destination="Lb4-b5-Noh" id="27g-kg-Ke7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ju6-Cs-kA9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

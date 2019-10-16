@@ -46,6 +46,7 @@
 		6A80F85F2354030A002B7C97 /* PackingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A80F85E2354030A002B7C97 /* PackingListTableViewCell.swift */; };
 		6A8FAE4923542788006E6964 /* CommonItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8FAE4823542788006E6964 /* CommonItemCollectionViewCell.swift */; };
 		6A9B7BB2235640630025E989 /* PrepareForTakeOff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A9B7BB0235640630025E989 /* PrepareForTakeOff.xcdatamodeld */; };
+		6AAE3EF3235670BD0068DFCE /* PointOfInterestPhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAE3EF2235670BD0068DFCE /* PointOfInterestPhotosCollectionViewCell.swift */; };
 		6ADBD86E234EBB2E00A98A38 /* CreateTripPart2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADBD86D234EBB2E00A98A38 /* CreateTripPart2ViewController.swift */; };
 		6ADBD870234EC67000A98A38 /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = 6ADBD86F234EC67000A98A38 /* city.list.json */; };
 		6ADBD872234EDE0200A98A38 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADBD871234EDE0200A98A38 /* NavigationViewController.swift */; };
@@ -53,6 +54,8 @@
 		6ADBD8762350530B00A98A38 /* PackingComponent+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADBD8752350530B00A98A38 /* PackingComponent+Convenience.swift */; };
 		6ADBD87A2350543400A98A38 /* PackingWordBank+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADBD8792350543400A98A38 /* PackingWordBank+Convenience.swift */; };
 		6ADBD87C235054BC00A98A38 /* PackingComponentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADBD87B235054BC00A98A38 /* PackingComponentController.swift */; };
+		6AFBB836235655BC0054F574 /* PointOfInterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFBB835235655BC0054F574 /* PointOfInterestViewController.swift */; };
+		6AFBB838235655E20054F574 /* PointOfInterestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFBB837235655E20054F574 /* PointOfInterestTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +100,7 @@
 		6A80F85E2354030A002B7C97 /* PackingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListTableViewCell.swift; sourceTree = "<group>"; };
 		6A8FAE4823542788006E6964 /* CommonItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		6A9B7BB1235640630025E989 /* PrepareForTakeOff.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrepareForTakeOff.xcdatamodel; sourceTree = "<group>"; };
+		6AAE3EF2235670BD0068DFCE /* PointOfInterestPhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterestPhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		6ADBD86D234EBB2E00A98A38 /* CreateTripPart2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripPart2ViewController.swift; sourceTree = "<group>"; };
 		6ADBD86F234EC67000A98A38 /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.list.json; sourceTree = "<group>"; };
 		6ADBD871234EDE0200A98A38 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 		6ADBD8752350530B00A98A38 /* PackingComponent+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PackingComponent+Convenience.swift"; sourceTree = "<group>"; };
 		6ADBD8792350543400A98A38 /* PackingWordBank+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PackingWordBank+Convenience.swift"; sourceTree = "<group>"; };
 		6ADBD87B235054BC00A98A38 /* PackingComponentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingComponentController.swift; sourceTree = "<group>"; };
+		6AFBB835235655BC0054F574 /* PointOfInterestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterestViewController.swift; sourceTree = "<group>"; };
+		6AFBB837235655E20054F574 /* PointOfInterestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterestTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,8 @@
 				6A80F85E2354030A002B7C97 /* PackingListTableViewCell.swift */,
 				6A8FAE4823542788006E6964 /* CommonItemCollectionViewCell.swift */,
 				6A5F2C8B235435070017FF01 /* PackingWordBankCollectionViewCell.swift */,
+				6AFBB837235655E20054F574 /* PointOfInterestTableViewCell.swift */,
+				6AAE3EF2235670BD0068DFCE /* PointOfInterestPhotosCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 				6A3A3B4D234E8E7400D91338 /* CreateTripViewController.swift */,
 				6ADBD86D234EBB2E00A98A38 /* CreateTripPart2ViewController.swift */,
 				6ADBD871234EDE0200A98A38 /* NavigationViewController.swift */,
+				6AFBB835235655BC0054F574 /* PointOfInterestViewController.swift */,
 				6A119D11235190480005A838 /* Views */,
 			);
 			path = "View Controller";
@@ -340,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A3A3B47234E443F00D91338 /* TripController.swift in Sources */,
+				6AAE3EF3235670BD0068DFCE /* PointOfInterestPhotosCollectionViewCell.swift in Sources */,
 				6ADBD86E234EBB2E00A98A38 /* CreateTripPart2ViewController.swift in Sources */,
 				6A3A3B4B234E813000D91338 /* TripViewController.swift in Sources */,
 				6ADBD872234EDE0200A98A38 /* NavigationViewController.swift in Sources */,
@@ -350,7 +360,9 @@
 				6A3A3B49234E452200D91338 /* DateFormatter.swift in Sources */,
 				6A5A4321235422A9003C37DC /* CommonPackingItemsViewController.swift in Sources */,
 				6A119D10235190420005A838 /* TripTableViewCell.swift in Sources */,
+				6AFBB836235655BC0054F574 /* PointOfInterestViewController.swift in Sources */,
 				6A28D14023541BED00D34ADD /* PackingWordBankViewController.swift in Sources */,
+				6AFBB838235655E20054F574 /* PointOfInterestTableViewCell.swift in Sources */,
 				6A80F85F2354030A002B7C97 /* PackingListTableViewCell.swift in Sources */,
 				6ADBD8762350530B00A98A38 /* PackingComponent+Convenience.swift in Sources */,
 				6A6C6EDA234C3355003B42DC /* Weather.swift in Sources */,

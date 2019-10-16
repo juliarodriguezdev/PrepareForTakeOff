@@ -61,7 +61,7 @@ class DestinationInfoController {
         }.resume()
     }
     
-    func fetchCountryDestinationImage(imageUrl: Thumbnail, completion: @escaping (UIImage?) -> Void) {
+    func fetchCountryDestinationImage(imageUrl: Medium, completion: @escaping (UIImage?) -> Void) {
         
         guard let imageUrl = URL(string: imageUrl.urlAsString) else { return }
         
@@ -120,7 +120,7 @@ class DestinationInfoController {
         }.resume()
     }
     
-    func fetchStateDestinationImage(imageURL: Thumbnail, completion: @escaping (UIImage?) -> Void) {
+    func fetchStateDestinationImage(imageURL: Medium, completion: @escaping (UIImage?) -> Void) {
         guard let imageURL = URL(string: imageURL.urlAsString) else { return }
         
         URLSession.shared.dataTask(with: imageURL) { (data, _, error) in
