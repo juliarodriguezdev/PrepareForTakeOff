@@ -56,10 +56,16 @@ class PointOfInterestTableViewCell: UITableViewCell {
     
     @IBAction func mapButtonTapped(_ sender: UIButton) {
         // send coordinates to apple maps
+        guard let pointOfInterest = pointOfInterest else { return }
+          
+        PointOfInterestController.shared.fetchStateMapsURL(pointOfInterest: pointOfInterest) { (url) in
+            if url != nil {
+                print("Sent to apple maps from POITBCell")
+            } else {
+                print("Not able to navigate to apple maps from POITBCell")
+            }
+        }
     }
-    
-    
-    
 }
 extension PointOfInterestTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     

@@ -135,4 +135,43 @@ class PointOfInterestController {
             completion(image)
         }.resume()
     }
+    
+    func fetchStateMapsURL(pointOfInterest: PointOfInterest, completion: @escaping (URL?) -> Void) {
+        let mapsBaseURL = URL(string: "http://maps.apple.com/")
+        
+        guard let url = mapsBaseURL else { return }
+        
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        
+        var latitudeAndLongitude: String {
+            var latString = ""
+            var longString = ""
+            guard let latitude = pointOfInterest.coordinates.latitude,
+                let longitude = pointOfInterest.coordinates.longitude else { return "" }
+                latString = String(latitude)
+                longString = String(longitude)
+            
+            let fullCoordinates = latString + "," + longString
+            return fullCoordinates
+        }
+        
+
+        let nameOfPlace = URLQueryItem(name: "q", value: pointOfInterest.name)
+        let coordinates = URLQueryItem(name: "near", value: latitudeAndLongitude)
+
+        components?.queryItems = [nameOfPlace, coordinates]
+        guard let finalCoordinatesURL = components?.url else { return }
+        print(finalCoordinatesURL)
+        
+        //UIApplication.shared.canOpenURL(finalCoordinatesURL)
+        UIApplication.shared.open(finalCoordinatesURL) { (success) in
+            if success {
+                print("Sent to apple maps from POIController")
+                completion(finalCoordinatesURL)
+            } else {
+                print("Coordinates not able to send to apple maps from POIController")
+                completion(nil)
+            }
+        }
+    }
 }
