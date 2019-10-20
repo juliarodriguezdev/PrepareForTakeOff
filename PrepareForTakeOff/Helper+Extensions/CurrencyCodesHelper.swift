@@ -265,12 +265,6 @@ enum CurrencyCodesHelper {
                 
     ]
     
-    func destinationCurrencyCode(regionCode: String) {
-        // TODO: the region code (2 Letters)
-        let code = CurrencyCodesHelper.countryCodes[regionCode]
-    
-    }
-    
 }
 
 

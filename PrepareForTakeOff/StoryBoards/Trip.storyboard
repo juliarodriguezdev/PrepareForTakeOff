@@ -99,8 +99,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNj-OS-rbh">
+                                <rect key="frame" x="4" y="88" width="406" height="67.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zeQ-4l-PtC">
-                                <rect key="frame" x="0.0" y="88" width="414" height="636"/>
+                                <rect key="frame" x="0.0" y="157.5" width="414" height="566.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="packingListCell" rowHeight="60" id="3Oa-JR-UsB" customClass="PackingListTableViewCell" customModule="PrepareForTakeOff" customModuleProvider="target">
@@ -160,11 +166,15 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="HAA-eI-aQz" firstAttribute="trailing" secondItem="xNj-OS-rbh" secondAttribute="trailing" constant="4" id="3ES-iz-0FF"/>
                             <constraint firstItem="zeQ-4l-PtC" firstAttribute="leading" secondItem="HAA-eI-aQz" secondAttribute="leading" id="C0v-YV-BPX"/>
                             <constraint firstItem="zeQ-4l-PtC" firstAttribute="centerX" secondItem="7yM-zv-psW" secondAttribute="centerX" id="DWM-uK-2nT"/>
                             <constraint firstItem="HAA-eI-aQz" firstAttribute="bottom" secondItem="zeQ-4l-PtC" secondAttribute="bottom" constant="40" id="XYn-6D-7z7"/>
-                            <constraint firstItem="zeQ-4l-PtC" firstAttribute="top" secondItem="HAA-eI-aQz" secondAttribute="top" id="bOQ-qk-Dvv"/>
                             <constraint firstItem="HAA-eI-aQz" firstAttribute="trailing" secondItem="zeQ-4l-PtC" secondAttribute="trailing" id="gRH-5q-9Ix"/>
+                            <constraint firstItem="xNj-OS-rbh" firstAttribute="top" secondItem="HAA-eI-aQz" secondAttribute="top" id="luW-V8-MEN"/>
+                            <constraint firstItem="zeQ-4l-PtC" firstAttribute="top" secondItem="xNj-OS-rbh" secondAttribute="bottom" constant="2" id="nxC-RB-ULm"/>
+                            <constraint firstItem="xNj-OS-rbh" firstAttribute="height" secondItem="HAA-eI-aQz" secondAttribute="height" multiplier="0.1" id="pn5-YV-iCY"/>
+                            <constraint firstItem="xNj-OS-rbh" firstAttribute="leading" secondItem="HAA-eI-aQz" secondAttribute="leading" constant="4" id="xa0-AW-r9C"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HAA-eI-aQz"/>
                     </view>
@@ -177,6 +187,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="infoLabel" destination="xNj-OS-rbh" id="LKQ-Kd-dnI"/>
                         <outlet property="packingTableView" destination="zeQ-4l-PtC" id="j1p-8r-90T"/>
                     </connections>
                 </viewController>

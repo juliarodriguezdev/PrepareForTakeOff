@@ -19,12 +19,6 @@ class PackingListTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func updateViews(with packingitem: PackingComponent) {
         packingItemLabel.text = packingitem.packingItem
         let imageName = packingitem.isComplete ? "Packing_checkMark" : "Packing_checkBox_rounded"

@@ -14,13 +14,15 @@ class PackingListViewController: UIViewController {
     
     @IBOutlet weak var packingTableView: UITableView!
     
+    @IBOutlet weak var infoLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         packingTableView.delegate = self
         packingTableView.dataSource = self
         self.tabBarController?.tabBar.isHidden = false
-        guard let trip = trip  else { return }
-        self.title = "\(trip.name!) Packing List"
+        self.title = "Let's Pack"
+        updateViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +38,16 @@ class PackingListViewController: UIViewController {
     @IBAction func editTripButtonTapped(_ sender: UIButton) {
         // navigate to edit trip details VC
     }
-    
+    func updateViews() {
+        guard let trip = trip else { return }
+        // TODO: Add progress, iscomplete / total item 
+        if let tripName = trip.name {
+         infoLabel.text = "Packlist for upcoming: \(tripName)"
+
+        } else {
+            infoLabel.text = "Packing list for upcoming tirp "
+        }
+    }
 
     
     // MARK: - Navigation

@@ -26,9 +26,9 @@ class CityResultsController {
         let decoder = JSONDecoder()
         do {
             let data = try Data(contentsOf: filePathURL)
-            let cityResults = try decoder.decode([City].self, from: data)
-            //self.cities = cityResults.cities
-            cities = cityResults
+            let cityResults = try decoder.decode([TopObject].self, from: data)
+            let cities = cityResults.map { City($0.city) }
+            self.cities = cities
         } catch {
             print("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
 

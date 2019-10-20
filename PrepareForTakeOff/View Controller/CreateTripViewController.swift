@@ -26,6 +26,7 @@ class CreateTripViewController: UIViewController {
     var city: String = ""
     var state: String = ""
     var isoCountryCode: String = ""
+    var isoDestinationCurrencyCode: String = ""
     var isUSA: Bool = true
     // Abroad: city, Country
     
@@ -39,7 +40,7 @@ class CreateTripViewController: UIViewController {
         // Turns cities.countries into a Set, which removes all duplicates, then turns it back into an Array and sorts alphabetically.
         // cities = $0
         //return Array(Set(TripController.shared.cities.compactMap({ $0.country }))).sorted()
-        let countries = Array(Set(TripController.shared.cities.filter({ $0.country != "US"}).map({$0.country}))).sorted()
+        let countries = Array(Set(CityResultsController.shared.cities.filter({ $0.country != "US"}).map({$0.country}))).sorted()
 //        let countryNameList = Array(Set(TripController.shared.cities.filter( {$0.country != "US"} ).compactMap({NSLocale.current.localizedString(forRegionCode: $0.country)})))
         
 //        if let objectIndex = object.first {
@@ -52,35 +53,32 @@ class CreateTripViewController: UIViewController {
         return countries
     }
     var unitedStatesCityNames: [String] {
-        let filteredCities = Array(Set(TripController.shared.cities.filter( {$0.country == "US"} ).map({$0.name}))).sorted()
+        let filteredCities = Array(Set(CityResultsController.shared.cities.filter( {$0.country == "US"} ).map({$0.name}))).sorted()
         return filteredCities
     }
     
     var abroadCityNames: [String] {
-        let filteredAbroadCities = Array(Set(TripController.shared.cities.filter( {$0.country != "US"} ).filter({$0.name != ""}).filter({$0.name != "-"}).map( {$0.name}))).sorted()
+        let filteredAbroadCities = Array(Set(CityResultsController.shared.cities.filter( {$0.country != "US"} ).filter({$0.name != ""}).filter({$0.name != "-"}).map( {$0.name}))).sorted()
         return filteredAbroadCities
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //cityStackView.isHidden = false
         countrySelection.selectedSegmentIndex = 0
         cityTextField.placeholder = "Enter city or county..."
 
-        //updateViewsWithCountrySelection()
         cityTableView.delegate = self
         cityTableView.dataSource = self
         cityTextField.delegate = self
-       // cityTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cityCell")
         
         placeHolderTableView.delegate = self
         placeHolderTableView.dataSource = self
         placeHolderTextField.delegate = self
-       // stateTableView.register(UITableViewCell.self, forCellReuseIdentifier: "stateCell")
+        
+        self.addDoneButtonOnKeyboard()
         self.cityTextField.addTarget(self, action: #selector(citySearching), for: .touchDown)
         self.placeHolderTextField.addTarget(self, action: #selector(placeHolderSearching), for: .touchDown)
-       // countryTableView.register(UITableViewCell.self, forCellReuseIdentifier: "countryCell")
     }
     
     @IBAction func countrySelectionTapped(_ sender: UISegmentedControl) {
@@ -113,15 +111,8 @@ class CreateTripViewController: UIViewController {
     
     @objc func citySearching(textField: UITextField) {
         isCitySearching = true
-        if countrySelection.selectedSegmentIndex == 0 {
-            
-        } else {
-            
-        }
         cityStackView.isHidden = false
         isPlaceHolderSearching = false
-        //placeHolderStackView.isHidden = true
-        //placeHolderTableView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 0)
         
     }
     
@@ -166,8 +157,10 @@ class CreateTripViewController: UIViewController {
             // Abroad Selected
         } else if countrySelection.selectedSegmentIndex == 1 {
             let countryCode = TripController.shared.fetchCountryCode(countryFullName: userPlaceHolderText)
+            let destinationCurrencyCode = TripController.shared.fetchCountryCurrencyCode(isoCountryCode: countryCode)
             // TODO: add an alert if it doesnt complete with a valid country code
             isoCountryCode = countryCode
+            isoDestinationCurrencyCode = destinationCurrencyCode
             isUSA = false
         }
         // push navigation controller vc
@@ -190,19 +183,31 @@ class CreateTripViewController: UIViewController {
         createTripViewControllerPart2.city = city
         createTripViewControllerPart2.state = state
         createTripViewControllerPart2.isoCountryCode = isoCountryCode
+        createTripViewControllerPart2.isoDestinationCurrencyCode = isoDestinationCurrencyCode
         createTripViewControllerPart2.inUSA = isUSA
         self.navigationController?.pushViewController(createTripViewControllerPart2, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func addDoneButtonOnKeyboard() {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        done.tintColor = .systemBlue
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        cityTextField.inputAccessoryView = doneToolbar
+        placeHolderTextField.inputAccessoryView = doneToolbar
+        
     }
-    */
-
+    
+    @objc func doneButtonAction() {
+        cityTextField.resignFirstResponder()
+        placeHolderTextField.resignFirstResponder()
+    }
+    
 }
 
 extension CreateTripViewController: UITableViewDelegate, UITableViewDataSource {
@@ -244,7 +249,7 @@ extension CreateTripViewController: UITableViewDelegate, UITableViewDataSource {
             print(cityText)
             if countrySelection.selectedSegmentIndex == 1 {
                 // 2 Letter Country Code
-                let object = TripController.shared.cities.filter({$0.name == cityText }).map({ $0.country})
+                let object = CityResultsController.shared.cities.filter({$0.name == cityText }).map({ $0.country})
                 if let objectIndex = object.first {
                     let indexOfCountryCode = Locale.isoRegionCodes.firstIndex(of: objectIndex) ?? 0
                     // 2 Letter region code
@@ -333,12 +338,12 @@ extension CreateTripViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension CreateTripViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-       // textField.resignFirstResponder()
-    }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    
+      func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        return true
     }
+    
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let searchText = textField.text?.lowercased() else { return }
         let count = searchText.count

@@ -14,7 +14,7 @@ struct WeatherDetails: Codable {
     let timeOfForecast: Int
     let timestampOfForecast: String
     let main: Main
-    let weather: [Weather]
+    let weather: [WeatherSubDetails]
     let wind: Wind
     
     enum CodingKeys: String, CodingKey {
@@ -28,10 +28,10 @@ struct WeatherDetails: Codable {
 
 struct Main: Codable {
     let temp: Double
-    let pressure: Int
-    let seaLevel: Int
+    let pressure: Double
+    let seaLevel: Double
     let groundLevel: Double
-    let humidity: Int
+    let humidity: Double
     
     enum CodingKeys: String, CodingKey {
         case temp
@@ -42,7 +42,7 @@ struct Main: Codable {
     }
 }
 
-struct Weather: Codable {
+struct WeatherSubDetails: Codable {
     let main: String
     let description: String
     let icon: String

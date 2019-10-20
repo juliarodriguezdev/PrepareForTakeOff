@@ -10,51 +10,81 @@
         <!--$ Exchange-->
         <scene sceneID="Kz7-9y-46a">
             <objects>
-                <viewController id="LF2-2c-YZa" sceneMemberID="viewController">
+                <viewController id="LF2-2c-YZa" customClass="CurrencyExchangeViewController" customModule="PrepareForTakeOff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w0x-bQ-FPI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$1 USD = $19.12 MXN" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rf-KX-S4H">
-                                <rect key="frame" x="61" y="123" width="300" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Exchange" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rf-KX-S4H">
+                                <rect key="frame" x="114" y="135.5" width="186" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter $..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KWn-f1-Psw">
-                                <rect key="frame" x="159" y="301" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cG-Kt-BQZ">
-                                <rect key="frame" x="150" y="394" width="114" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Calculate Pesos!"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cG-Kt-BQZ">
+                                <rect key="frame" x="175" y="508" width="64" height="30"/>
+                                <state key="normal" title="Calculate"/>
+                                <connections>
+                                    <action selector="calculateButtonTapped:" destination="LF2-2c-YZa" eventType="touchUpInside" id="nzc-ph-939"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter amount to exchange" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQq-Ja-wpP">
-                                <rect key="frame" x="107" y="248" width="201" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter amount to exchange" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQq-Ja-wpP">
+                                <rect key="frame" x="122.5" y="411" width="169.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$1,000 Pesos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xt8-da-yjP">
-                                <rect key="frame" x="123" y="550" width="168" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xt8-da-yjP">
+                                <rect key="frame" x="169.5" y="618" width="75.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDZ-KR-9LJ">
+                                <rect key="frame" x="138" y="84" width="138" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter $..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KWn-f1-Psw">
+                                <rect key="frame" x="163.5" y="362" width="87" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iDZ-KR-9LJ" firstAttribute="top" secondItem="qX3-xZ-IBm" secondAttribute="top" constant="40" id="2eH-gB-Jc1"/>
+                            <constraint firstItem="7cG-Kt-BQZ" firstAttribute="top" secondItem="CQq-Ja-wpP" secondAttribute="bottom" constant="80" id="84M-cO-y4d"/>
+                            <constraint firstItem="CQq-Ja-wpP" firstAttribute="top" secondItem="KWn-f1-Psw" secondAttribute="bottom" constant="15" id="8p1-VR-aHb"/>
+                            <constraint firstItem="CQq-Ja-wpP" firstAttribute="centerX" secondItem="w0x-bQ-FPI" secondAttribute="centerX" id="Cd4-Fv-cYX"/>
+                            <constraint firstItem="iDZ-KR-9LJ" firstAttribute="centerX" secondItem="w0x-bQ-FPI" secondAttribute="centerX" id="KTL-rp-aGX"/>
+                            <constraint firstItem="9rf-KX-S4H" firstAttribute="top" secondItem="iDZ-KR-9LJ" secondAttribute="bottom" constant="25" id="Ldr-uT-j3F"/>
+                            <constraint firstItem="KWn-f1-Psw" firstAttribute="centerX" secondItem="w0x-bQ-FPI" secondAttribute="centerX" id="Ls7-Jy-GMU"/>
+                            <constraint firstItem="7cG-Kt-BQZ" firstAttribute="centerX" secondItem="w0x-bQ-FPI" secondAttribute="centerX" id="Wg9-Kw-pe6"/>
+                            <constraint firstItem="KWn-f1-Psw" firstAttribute="top" secondItem="9rf-KX-S4H" secondAttribute="bottom" constant="200" id="dew-Ab-CpZ"/>
+                            <constraint firstItem="xt8-da-yjP" firstAttribute="centerX" secondItem="w0x-bQ-FPI" secondAttribute="centerX" id="h98-0o-bdc"/>
+                            <constraint firstItem="9rf-KX-S4H" firstAttribute="centerX" secondItem="w0x-bQ-FPI" secondAttribute="centerX" id="xIH-fb-phR"/>
+                            <constraint firstItem="xt8-da-yjP" firstAttribute="top" secondItem="7cG-Kt-BQZ" secondAttribute="bottom" constant="80" id="zNM-NP-tiC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qX3-xZ-IBm"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="$ Exchange" id="lRH-A3-JIB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="amountTextField" destination="KWn-f1-Psw" id="dOG-6n-HbJ"/>
+                        <outlet property="calculateButton" destination="7cG-Kt-BQZ" id="nPI-Rc-Sez"/>
+                        <outlet property="countryName" destination="iDZ-KR-9LJ" id="Eb2-o7-Eob"/>
+                        <outlet property="currencyLabel" destination="9rf-KX-S4H" id="3Si-xf-cqa"/>
+                        <outlet property="resultLabel" destination="xt8-da-yjP" id="kmU-MA-qhB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k5g-wj-aKV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="rpE-Z8-qbK">
+                    <connections>
+                        <action selector="tapGesture:" destination="LF2-2c-YZa" id="1kw-eV-8KJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="80" y="183"/>
         </scene>

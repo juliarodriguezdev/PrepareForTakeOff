@@ -10,7 +10,7 @@
         <!--Weather at XYZ-->
         <scene sceneID="BOh-dx-HMq">
             <objects>
-                <viewController id="isr-hA-hTK" sceneMemberID="viewController">
+                <viewController id="isr-hA-hTK" customClass="WeatherViewController" customModule="PrepareForTakeOff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lhl-Wc-yRY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="242" id="38P-WP-bUM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="242" id="38P-WP-bUM" customClass="WeatherTableViewCell" customModule="PrepareForTakeOff" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="242"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="38P-WP-bUM" id="VeE-ez-M0O">
@@ -112,6 +112,19 @@
                                                 <constraint firstItem="ytP-Zj-Dse" firstAttribute="height" secondItem="VeE-ez-M0O" secondAttribute="height" multiplier="0.7" id="oP8-Zj-DdU"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="XGh-8A-Cxu" id="L38-sy-ThJ"/>
+                                            <outlet property="descriptionLabel" destination="NK5-PX-Obb" id="ld0-fV-3xV"/>
+                                            <outlet property="groundlevelLabel" destination="qzl-c6-KRT" id="vYp-ya-jvv"/>
+                                            <outlet property="humidityLabel" destination="VRO-At-j3l" id="atR-JP-sAh"/>
+                                            <outlet property="icon" destination="ytP-Zj-Dse" id="ygx-oO-zaA"/>
+                                            <outlet property="mainLabel" destination="SMo-r6-Kpj" id="DGY-pp-0M6"/>
+                                            <outlet property="pressureLabel" destination="DfN-2Y-cRE" id="HBs-pz-61O"/>
+                                            <outlet property="sealevelLabel" destination="K0m-5x-tI7" id="rl4-qK-XFH"/>
+                                            <outlet property="temperatureLabel" destination="MNc-hs-IlL" id="wim-uX-RDb"/>
+                                            <outlet property="windDegreesLabel" destination="y5w-pm-EDj" id="dfq-Jv-oAf"/>
+                                            <outlet property="windspeedLabel" destination="5wc-Mq-Rbt" id="IEo-Ty-769"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -127,6 +140,9 @@
                         <viewLayoutGuide key="safeArea" id="bgs-V9-XqY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Weather at XYZ" id="WO4-GA-atZ"/>
+                    <connections>
+                        <outlet property="weatherTableView" destination="dN4-RZ-zER" id="ZK1-uV-f2q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YFg-Gu-bRH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

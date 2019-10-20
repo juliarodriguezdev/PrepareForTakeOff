@@ -39,9 +39,9 @@ class TripViewController: UIViewController {
         guard let index = tripTableView.indexPathForSelectedRow,
             let destinationVC = segue.destination as? PackingListViewController else { return }
         let trip = TripController.shared.trips[index.row]
-        destinationVC.trip = trip
         // use to retrieve to populate tab data
         TripController.shared.tripForAllTabs = trip
+        destinationVC.trip = trip
         
     }
     

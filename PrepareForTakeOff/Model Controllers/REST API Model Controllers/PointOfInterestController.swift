@@ -59,24 +59,6 @@ class PointOfInterestController {
             }
         }.resume()
     }
-    func fetchCountryPointOfInterestImage(imageURL: Medium, completion: @escaping (UIImage?) -> Void) {
-        guard let imageURL = URL(string: imageURL.urlAsString) else { return }
-        
-        URLSession.shared.dataTask(with: imageURL) { (data, _, error) in
-            if let error = error {
-                print("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
-                completion(nil)
-                return
-            }
-            guard let data = data else {
-                print("Couldn't fetch imageURL data")
-                completion(nil)
-                return
-            }
-            let image = UIImage(data: data)
-            completion(image)
-        }.resume()
-    }
     
     func fetchPointOfInterestForState(stateCode: String, countryCode: String = "US", completion: @escaping ([PointOfInterest]?) -> Void) {
         
@@ -117,7 +99,7 @@ class PointOfInterestController {
         }.resume()
     }
     
-    func fetchStateDestinationImage(imageURL: Medium, completion: @escaping (UIImage?) -> Void) {
+    func fetchDestinationImage(imageURL: Medium, completion: @escaping (UIImage?) -> Void) {
         guard let imageURL = URL(string: imageURL.urlAsString) else { return }
         
         URLSession.shared.dataTask(with: imageURL) { (data, _, error) in
@@ -136,7 +118,7 @@ class PointOfInterestController {
         }.resume()
     }
     
-    func fetchStateMapsURL(pointOfInterest: PointOfInterest, completion: @escaping (URL?) -> Void) {
+    func fetchMapsURL(pointOfInterest: PointOfInterest, completion: @escaping (URL?) -> Void) {
         let mapsBaseURL = URL(string: "http://maps.apple.com/")
         
         guard let url = mapsBaseURL else { return }

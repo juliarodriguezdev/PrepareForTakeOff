@@ -14,7 +14,7 @@ class TripController {
     static let shared = TripController()
     
     init(){
-        fetchCityAndCountries()
+       // fetchCityAndCountries()
     }
     
     // source of truth
@@ -24,7 +24,7 @@ class TripController {
         return (try? CoreDataStack.managedObjectContext.fetch(request)) ?? []
     }
     
-    var cities: [City] = []
+  //  var cities: [City] = []
     
     var tripForAllTabs: Trip?
     
@@ -33,7 +33,7 @@ class TripController {
     // Create
     func createTripWith(date: Date, destinationCity: String, destinationCountryCode: String, destinationCountryName: String, destinationCurrencyCode: String, destinationStateCode: String?, inUSA: Bool, name: String, userCurrencyCode: String = Locale.current.currencyCode ?? "USD") {
         
-        Trip(date: date, destinationCity: destinationCity, destinationCountryCode: destinationCurrencyCode, destinationCountryName: destinationCountryName, destinationCurrencyCode: destinationCountryCode, destinationStateCode: destinationStateCode, inUSA: inUSA, name: name, userCurrencyCode: userCurrencyCode)
+        Trip(date: date, destinationCity: destinationCity, destinationCountryCode: destinationCountryCode, destinationCountryName: destinationCountryName, destinationCurrencyCode: destinationCurrencyCode, destinationStateCode: destinationStateCode, inUSA: inUSA, name: name, userCurrencyCode: userCurrencyCode)
         saveToPersistentStore()
     }
     
@@ -64,34 +64,7 @@ class TripController {
             print("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
         }
     }
-    // save trip to use across all Tabs
-    func saveTripForAllTabs(trip: Trip) {
-        self.tripForAllTabs = trip
-    }
-    
-    // City and Country CRUD Func
-    var filePath = Bundle.main.url(forResource: "city.list", withExtension: "json")
-    
-    // Fetch CIty and Country
-    func fetchCityAndCountries() {
-        guard let filePath = filePath else { return }
-        let jsonDecoder = JSONDecoder()
-        do {
-            let jsonData = try Data(contentsOf: filePath)
-            //let decodedCityList = try jsonDecoder.decode([CityResults].self, from: jsonData)
-            let decodedCitiesList = try jsonDecoder.decode([City].self, from: jsonData)
-            //let cityList = try jsonDecoder.decode([City].self, from: jsonData)
-            //cities = decodedCityList.compactMap({$0.city})
-            cities = decodedCitiesList
-            //print(jsonData)
-            
-        } catch {
-            print("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
-
-            //print("There was an error decoding! \(error.localizedDescription)")
-        }
-    }
-    
+   
     // State Funcs
     func fetchStates() -> [String] {
         let statesDictionary = StateHelper.states
@@ -142,9 +115,9 @@ class TripController {
     }
     
     func fetchCountryCurrencyCode(isoCountryCode: String) -> String {
-        let currencyCode = CurrencyCodesHelper.countryCodes[isoCountryCode]
-        if currencyCode != nil {
-            return isoCountryCode
+        // verify this is upper cased (the input)
+        if let currencyCode = CurrencyCodesHelper.countryCodes[isoCountryCode] {
+            return currencyCode
         } else {
             // Antartica doesn't have a currency
             return ""
@@ -152,13 +125,45 @@ class TripController {
         
     }
     
-    
-    // API Search Query String Func
-    func fetchAPIQueryString() {
-       
-
+    func fetchCityIDNumber(trip: Trip) -> String {
+        // inside USA
+        // array of all cities to loop through
+        var cityIDForFetch: String = ""
+       guard let cityName = trip.destinationCity,
+        let countryCode = trip.destinationCountryCode else { return ""}
+        let allCities = CityResultsController.shared.cities
+        
+        if trip.inUSA == true {
+            let city = allCities.filter({$0.name == cityName && $0.country == "US"}).compactMap({$0})
+            // we have an array
+            let foundCity = city.first
+            if let cityId = foundCity?.cityID {
+                cityIDForFetch = cityId
+            }
+            
+        } else {
+            let city = allCities.filter({$0.name == cityName && $0.country == countryCode}).compactMap({$0})
+            let foundCity = city.first
+            if let cityId = foundCity?.cityID {
+                cityIDForFetch = cityId
+            }
+            
+        }
+        print("City Id for fetch: \(cityIDForFetch)")
+        return cityIDForFetch
     }
     
+    
+    // API Search Query String Func
+    func fetchAPIQueryString(trip: Trip) -> String {
+       // current usd
+        guard let userCurrencyCode = trip.userCurrencyCode,
+            let destinationCurrencyCode = trip.destinationCurrencyCode else { return "" }
+        let currencyString = ("\(userCurrencyCode)_\(destinationCurrencyCode)").uppercased()
+        
+        return currencyString
+      // destination $ code
 
+    }
     
 }

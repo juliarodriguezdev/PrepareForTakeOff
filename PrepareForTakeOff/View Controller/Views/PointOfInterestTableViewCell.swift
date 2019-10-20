@@ -11,7 +11,6 @@ import UIKit
 class PointOfInterestTableViewCell: UITableViewCell {
     
     var pointOfInterest: PointOfInterest?
-    var photosArray : [UIImage]?
     
     @IBOutlet weak var nameLabel: UILabel!
         
@@ -36,8 +35,6 @@ class PointOfInterestTableViewCell: UITableViewCell {
         print(pointOfInterest.name)
         scoreLabel.text = "Score: " + String(format: "%.2f", pointOfInterest.score)
 
-        // check if coordinates display
-       // coordinatesLabel.text = String(format: "%.2f", arguments: [pointOfInterest.coordinates.latitude ?? 0, pointOfInterest.coordinates.longitude ?? 0])
         snippetLabel.text = pointOfInterest.snippet
         
         var locationName: String {
@@ -58,7 +55,7 @@ class PointOfInterestTableViewCell: UITableViewCell {
         // send coordinates to apple maps
         guard let pointOfInterest = pointOfInterest else { return }
           
-        PointOfInterestController.shared.fetchStateMapsURL(pointOfInterest: pointOfInterest) { (url) in
+        PointOfInterestController.shared.fetchMapsURL(pointOfInterest: pointOfInterest) { (url) in
             if url != nil {
                 print("Sent to apple maps from POITBCell")
             } else {
@@ -79,9 +76,7 @@ extension PointOfInterestTableViewCell: UICollectionViewDelegate, UICollectionVi
             let image = pointOfInterest?.images[indexPath.row]
             else { return UICollectionViewCell()}
         
-        
-        
-        PointOfInterestController.shared.fetchStateDestinationImage(imageURL: image.sizes.medium) { (image) in
+        PointOfInterestController.shared.fetchDestinationImage(imageURL: image.sizes.medium) { (image) in
             if let image = image {
                 DispatchQueue.main.async {
                     cell.image.image = image

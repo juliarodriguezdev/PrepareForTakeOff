@@ -53,16 +53,6 @@ class PointOfInterestViewController: UIViewController {
             
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension PointOfInterestViewController: UITableViewDelegate, UITableViewDataSource {
@@ -76,6 +66,7 @@ extension PointOfInterestViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "pointOfInterestCell", for: indexPath) as? PointOfInterestTableViewCell else { return UITableViewCell() }
+        
         let pointOfInterest = pointOfInterestResults[indexPath.row]
         cell.pointOfInterest = pointOfInterest
         cell.updateViews()

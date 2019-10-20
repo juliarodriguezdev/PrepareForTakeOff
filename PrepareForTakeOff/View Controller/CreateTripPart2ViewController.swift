@@ -23,15 +23,18 @@ class CreateTripPart2ViewController: UIViewController {
     var city: String?
     var state: String?
     var isoCountryCode: String?
+    var isoDestinationCurrencyCode: String?
     var inUSA: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dateTextField.inputView = datePicker
+        dateTextField.delegate = self
+        nameTextField.delegate = self
+        self.addDoneButtonOnKeyboard()
 
     }
-    
-    
+
     @IBAction func datePickerTapped(_ sender: UIDatePicker) {
         let dateChosenValue = datePicker.date
         dateTextField.text = dateChosenValue.stringValue()
@@ -40,9 +43,9 @@ class CreateTripPart2ViewController: UIViewController {
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let city = city,
             let isoCountryCode = isoCountryCode,
+            let destinationCurrencyCode = isoDestinationCurrencyCode,
             let isUSA = inUSA else { return }
     
-        let destinationCurrencyCode = TripController.shared.fetchCountryCurrencyCode(isoCountryCode: isoCountryCode)
         let destinationCountryName = NSLocale.current.localizedString(forRegionCode: isoCountryCode)
         // get date, check if it not < current date
         let today = Date()
@@ -60,11 +63,11 @@ class CreateTripPart2ViewController: UIViewController {
         if isUSA == true {
             guard let state = state else { return }
             
-            TripController.shared.createTripWith(date: dateOfTrip, destinationCity: city, destinationCountryCode: isoCountryCode, destinationCountryName: destinationCountryName!, destinationCurrencyCode: destinationCurrencyCode, destinationStateCode: state, inUSA: true, name: tripName)
+            TripController.shared.createTripWith(date: dateOfTrip, destinationCity: city, destinationCountryCode: isoCountryCode, destinationCountryName: destinationCountryName ?? isoCountryCode, destinationCurrencyCode: destinationCurrencyCode, destinationStateCode: state, inUSA: true, name: tripName)
             print("Trip for USA was created")
         } else {
-            // USA == false; abroad Trip (no city)
-            TripController.shared.createTripWith(date: dateOfTrip, destinationCity: city, destinationCountryCode: isoCountryCode, destinationCountryName: destinationCountryName!, destinationCurrencyCode: destinationCurrencyCode, destinationStateCode: nil, inUSA: false, name: tripName)
+            // USA == false; abroad Trip (no state)
+            TripController.shared.createTripWith(date: dateOfTrip, destinationCity: city, destinationCountryCode: isoCountryCode, destinationCountryName: destinationCountryName ?? isoCountryCode, destinationCurrencyCode: destinationCurrencyCode, destinationStateCode: nil, inUSA: false, name: tripName)
             print("Trip for abroad was created")
         }
         // show main trip VC
@@ -77,6 +80,11 @@ class CreateTripPart2ViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func tapGesture(_ sender: Any) {
+        nameTextField.resignFirstResponder()
+        dateTextField.resignFirstResponder()
+    }
+    
     // Helper Func for UI Alert
     func presentUIHelperAlert(title: String, message: String) {
         
@@ -87,9 +95,28 @@ class CreateTripPart2ViewController: UIViewController {
     }
     
     func showMainTripViewController() {
-//        let storyboard = UIStoryboard(name: "Trip", bundle: nil)
-//        guard let mainTripViewController = storyboard.instantiateViewController(identifier: "TripViewController") as? TripViewController else { return }
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func addDoneButtonOnKeyboard() {
+        let doneToolBar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolBar.barStyle = .default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
+        done.tintColor = .systemBlue
+        let items = [flexSpace, done]
+        doneToolBar.items = items
+        doneToolBar.sizeToFit()
+        
+        nameTextField.inputAccessoryView = doneToolBar
+        dateTextField.inputAccessoryView = doneToolBar
+    
+    }
+    
+    @objc func doneButtonAction() {
+        nameTextField.resignFirstResponder()
+        dateTextField.resignFirstResponder()
     }
 
     /*
@@ -102,4 +129,11 @@ class CreateTripPart2ViewController: UIViewController {
     }
     */
 
+}
+
+extension CreateTripPart2ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true 
+    }
 }
