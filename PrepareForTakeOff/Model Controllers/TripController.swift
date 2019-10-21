@@ -31,9 +31,9 @@ class TripController {
     // CRUD Funcs
     
     // Create
-    func createTripWith(date: Date, destinationCity: String, destinationCountryCode: String, destinationCountryName: String, destinationCurrencyCode: String, destinationStateCode: String?, inUSA: Bool, name: String, userCurrencyCode: String = Locale.current.currencyCode ?? "USD") {
+    func createTripWith(date: Date, destinationCity: String, destinationCountryCode: String, destinationCountryName: String, destinationCurrencyCode: String, destinationStateCode: String?, inUSA: Bool, name: String, userCurrencyCode: String = Locale.current.currencyCode ?? "USD", durationInDays: Int16) {
         
-        Trip(date: date, destinationCity: destinationCity, destinationCountryCode: destinationCountryCode, destinationCountryName: destinationCountryName, destinationCurrencyCode: destinationCurrencyCode, destinationStateCode: destinationStateCode, inUSA: inUSA, name: name, userCurrencyCode: userCurrencyCode)
+        Trip(date: date, destinationCity: destinationCity, destinationCountryCode: destinationCountryCode, destinationCountryName: destinationCountryName, destinationCurrencyCode: destinationCurrencyCode, destinationStateCode: destinationStateCode, inUSA: inUSA, name: name, userCurrencyCode: userCurrencyCode, durationInDays: durationInDays)
         saveToPersistentStore()
     }
     
@@ -164,6 +164,36 @@ class TripController {
         return currencyString
       // destination $ code
 
+    }
+    
+    func fetchTripReturnDate(trip: Trip) {
+        
+    }
+    
+    // create date range string for eventful api
+    func fetchDateRangeOfTrip(trip: Trip) -> String  {
+        var finalReturnDate: Date?
+        // get the departure date of trip
+        guard let depatureDate = trip.date else { return ""}
+        // get the duration (in days)
+        let durationInDays = Int(trip.durationInDays)
+        // add the two -> get teh return date of trip
+        if let returnDate = Calendar.current.date(byAdding: .day, value: durationInDays, to: depatureDate) {
+            finalReturnDate = returnDate
+        }
+        
+        var formattedDepatureDate = depatureDate.stringForAPI()
+        formattedDepatureDate.append("00")
+        print("Depature Formatted Date: \(formattedDepatureDate)")
+        
+        guard let userReturnDate = finalReturnDate else { return ""}
+        
+        var formattedReturnDate = userReturnDate.stringForAPI()
+        formattedReturnDate.append("00")
+        print("Return formatted Date: \(formattedReturnDate)")
+        
+        let finalDateRange = formattedDepatureDate + "-" + formattedReturnDate
+        return finalDateRange
     }
     
 }

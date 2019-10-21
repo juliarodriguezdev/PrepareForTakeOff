@@ -15,4 +15,18 @@ extension Date {
         dateFormatter.dateStyle = .medium
         return dateFormatter.string(from: self)
     }
+    
+    func stringForAPI() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        
+        return formatter.string(from: self)
+    }
+    
+    // for the display on the table view 
+    func convertToViewableDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, MMM d, yyyy @ h:mm a"
+        return formatter.string(from: self)
+    }
 }

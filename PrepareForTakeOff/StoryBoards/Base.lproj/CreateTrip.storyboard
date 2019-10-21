@@ -132,42 +132,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="1tV-MG-fvT">
-                                <rect key="frame" x="61" y="154" width="292.5" height="364"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="1tV-MG-fvT">
+                                <rect key="frame" x="61" y="103" width="292.5" height="466"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When will you be traveling?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GQ-wh-oef">
-                                        <rect key="frame" x="0.0" y="0.0" width="292.5" height="36.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="292.5" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Date..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5C-MK-UTJ" userLabel="Date TextField">
-                                        <rect key="frame" x="0.0" y="96.5" width="292.5" height="49"/>
+                                        <rect key="frame" x="0.0" y="73" width="292.5" height="49.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length of trip?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhd-y0-GtG" userLabel="Duration Label">
+                                        <rect key="frame" x="0.0" y="152.5" width="292.5" height="76.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter length..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ekh-YT-Qsh" userLabel="Duration TextField">
+                                        <rect key="frame" x="0.0" y="259" width="292.5" height="49"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of trip?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNR-AE-lWV">
-                                        <rect key="frame" x="0.0" y="205.5" width="292.5" height="49.5"/>
+                                        <rect key="frame" x="0.0" y="338" width="292.5" height="49"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name, occasion, celebration..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3uN-da-PTx">
-                                        <rect key="frame" x="0.0" y="315" width="292.5" height="49"/>
+                                        <rect key="frame" x="0.0" y="417" width="292.5" height="49"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBP-gg-Lm6">
-                                <rect key="frame" x="103.5" y="658" width="207" height="57"/>
+                                <rect key="frame" x="103.5" y="669" width="207" height="57.5"/>
                                 <state key="normal" title="Save Trip"/>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="E6T-Oj-yZ4" eventType="touchUpInside" id="Rsh-9A-NHC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ha-k5-AuA">
-                                <rect key="frame" x="103.5" y="740" width="207" height="33"/>
+                                <rect key="frame" x="103.5" y="751.5" width="207" height="32.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Go Back"/>
                                 <connections>
@@ -180,10 +191,11 @@
                             <constraint firstItem="0Ha-k5-AuA" firstAttribute="width" secondItem="tIB-Ud-DmT" secondAttribute="width" multiplier="0.5" id="0LR-iy-bOP"/>
                             <constraint firstItem="0Ha-k5-AuA" firstAttribute="top" secondItem="yBP-gg-Lm6" secondAttribute="bottom" constant="25" id="1iR-1l-i5Q"/>
                             <constraint firstItem="0Ha-k5-AuA" firstAttribute="height" secondItem="tIB-Ud-DmT" secondAttribute="height" multiplier="0.04" id="852-fo-dcq"/>
-                            <constraint firstItem="yBP-gg-Lm6" firstAttribute="top" secondItem="1tV-MG-fvT" secondAttribute="bottom" constant="140" id="9GA-0o-d1h"/>
+                            <constraint firstItem="yBP-gg-Lm6" firstAttribute="top" secondItem="1tV-MG-fvT" secondAttribute="bottom" constant="100" id="9GA-0o-d1h"/>
                             <constraint firstItem="1tV-MG-fvT" firstAttribute="centerY" secondItem="2Nf-PE-O3w" secondAttribute="centerY" multiplier="0.75" id="DTm-xJ-1sf"/>
                             <constraint firstItem="yBP-gg-Lm6" firstAttribute="width" secondItem="tIB-Ud-DmT" secondAttribute="width" multiplier="0.5" id="S4L-eT-eBi"/>
                             <constraint firstItem="kNR-AE-lWV" firstAttribute="height" secondItem="tIB-Ud-DmT" secondAttribute="height" multiplier="0.06" id="UfM-aJ-Did"/>
+                            <constraint firstItem="ekh-YT-Qsh" firstAttribute="height" secondItem="tIB-Ud-DmT" secondAttribute="height" multiplier="0.06" id="ZNc-56-lzE"/>
                             <constraint firstItem="1tV-MG-fvT" firstAttribute="centerX" secondItem="2Nf-PE-O3w" secondAttribute="centerX" id="daH-GD-hbb"/>
                             <constraint firstItem="h5C-MK-UTJ" firstAttribute="height" secondItem="tIB-Ud-DmT" secondAttribute="height" multiplier="0.06" id="eKG-H3-dDF"/>
                             <constraint firstItem="0Ha-k5-AuA" firstAttribute="centerX" secondItem="2Nf-PE-O3w" secondAttribute="centerX" id="lRz-en-f9Z"/>
@@ -198,12 +210,15 @@
                         <outlet property="dateLabel" destination="7GQ-wh-oef" id="PpH-1S-s3E"/>
                         <outlet property="datePicker" destination="E6K-G7-NaO" id="7gK-yN-3Uf"/>
                         <outlet property="dateTextField" destination="h5C-MK-UTJ" id="eDb-xD-3cw"/>
+                        <outlet property="durationLabel" destination="xhd-y0-GtG" id="Uit-Oq-kUU"/>
+                        <outlet property="durationPicker" destination="dkB-iw-m7o" id="pqK-ZS-pqC"/>
+                        <outlet property="durationTextField" destination="ekh-YT-Qsh" id="DdY-a2-y39"/>
                         <outlet property="nameTextField" destination="3uN-da-PTx" id="Dyf-fD-QRy"/>
                         <outlet property="saveButton" destination="yBP-gg-Lm6" id="6a7-Fx-ZRx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gy-jM-Cll" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="E6K-G7-NaO">
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" id="E6K-G7-NaO">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <connections>
@@ -215,6 +230,10 @@
                         <action selector="tapGesture:" destination="E6T-Oj-yZ4" id="aqy-VY-2o9"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pickerView contentMode="scaleToFill" id="dkB-iw-m7o">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                </pickerView>
             </objects>
             <point key="canvasLocation" x="-963.76811594202911" y="-458.03571428571428"/>
         </scene>

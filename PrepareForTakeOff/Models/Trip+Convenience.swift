@@ -13,7 +13,7 @@ extension Trip {
     
     @discardableResult
     
-    convenience init(date: Date, destinationCity: String, destinationCountryCode: String, destinationCountryName: String, destinationCurrencyCode: String, destinationStateCode: String?, inUSA: Bool, name: String, userCurrencyCode: String, context: NSManagedObjectContext = CoreDataStack.managedObjectContext){
+    convenience init(date: Date, destinationCity: String, destinationCountryCode: String, destinationCountryName: String, destinationCurrencyCode: String, destinationStateCode: String?, inUSA: Bool, name: String, userCurrencyCode: String, durationInDays: Int16, context: NSManagedObjectContext = CoreDataStack.managedObjectContext){
         
         self.init(context: context)
         self.date = date
@@ -25,5 +25,6 @@ extension Trip {
         self.inUSA = inUSA
         self.name = name
         self.userCurrencyCode = userCurrencyCode
+        self.durationInDays = durationInDays
     }
 }

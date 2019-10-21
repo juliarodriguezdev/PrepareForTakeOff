@@ -14,9 +14,15 @@ class CreateTripPart2ViewController: UIViewController {
     
     @IBOutlet weak var dateTextField: UITextField!
     
+    @IBOutlet weak var durationLabel: UILabel!
+    
+    @IBOutlet weak var durationTextField: UITextField!
+    
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet var datePicker: UIDatePicker!
+    
+    @IBOutlet var durationPicker: UIPickerView!
     
     @IBOutlet weak var saveButton: UIButton!
     
@@ -26,11 +32,18 @@ class CreateTripPart2ViewController: UIViewController {
     var isoDestinationCurrencyCode: String?
     var inUSA: Bool?
     
+    let durationPickerData = ["1 day", "2 days", "3 days", "4 days","5 days", "6 days","7 days","8 days", "9 days", "10 days", "11 days", "12 days", "13 days", "14 days", "15 days", "16 days", "17 days", "18 days", "19 days", "20 days", "21 days", "22 days", "23 days", "24 days", "25 days", "26 days", "27 days", "28 days", "29 days", "30 days", "60 days", "90 days"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dateTextField.inputView = datePicker
         dateTextField.delegate = self
         nameTextField.delegate = self
+        
+        durationPicker.delegate = self
+        durationPicker.dataSource = self
+        durationTextField.inputView = durationPicker
+        durationTextField.delegate = self
         self.addDoneButtonOnKeyboard()
 
     }
@@ -59,15 +72,22 @@ class CreateTripPart2ViewController: UIViewController {
             self.presentUIHelperAlert(title: "Missing Trip Name", message: "Please enter a trip name, occasion and continue.")
             return
         }
+        
+        guard let durationDays = durationTextField.text else { return }
+        let numberOfDays = durationDays.replacingOccurrences(of: " days", with: "")
+        // test: trimming white spaces
+        let daysInt = Int16(numberOfDays)
+        print("Days from picker is: \(daysInt ?? 0)")
+        
         // check for usa and abroad
         if isUSA == true {
             guard let state = state else { return }
             
-            TripController.shared.createTripWith(date: dateOfTrip, destinationCity: city, destinationCountryCode: isoCountryCode, destinationCountryName: destinationCountryName ?? isoCountryCode, destinationCurrencyCode: destinationCurrencyCode, destinationStateCode: state, inUSA: true, name: tripName)
+            TripController.shared.createTripWith(date: dateOfTrip, destinationCity: city, destinationCountryCode: isoCountryCode, destinationCountryName: destinationCountryName ?? isoCountryCode, destinationCurrencyCode: destinationCurrencyCode, destinationStateCode: state, inUSA: true, name: tripName, durationInDays: daysInt ?? 1)
             print("Trip for USA was created")
         } else {
             // USA == false; abroad Trip (no state)
-            TripController.shared.createTripWith(date: dateOfTrip, destinationCity: city, destinationCountryCode: isoCountryCode, destinationCountryName: destinationCountryName ?? isoCountryCode, destinationCurrencyCode: destinationCurrencyCode, destinationStateCode: nil, inUSA: false, name: tripName)
+            TripController.shared.createTripWith(date: dateOfTrip, destinationCity: city, destinationCountryCode: isoCountryCode, destinationCountryName: destinationCountryName ?? isoCountryCode, destinationCurrencyCode: destinationCurrencyCode, destinationStateCode: nil, inUSA: false, name: tripName, durationInDays: daysInt ?? 1)
             print("Trip for abroad was created")
         }
         // show main trip VC
@@ -110,7 +130,6 @@ class CreateTripPart2ViewController: UIViewController {
         doneToolBar.sizeToFit()
         
         nameTextField.inputAccessoryView = doneToolBar
-        dateTextField.inputAccessoryView = doneToolBar
     
     }
     
@@ -119,16 +138,6 @@ class CreateTripPart2ViewController: UIViewController {
         dateTextField.resignFirstResponder()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension CreateTripPart2ViewController: UITextFieldDelegate {
@@ -136,4 +145,25 @@ extension CreateTripPart2ViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true 
     }
+}
+
+extension CreateTripPart2ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return durationPickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return durationPickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        durationTextField.text = durationPickerData[row]
+        self.view.endEditing(true)
+    }
+    
+    
 }
