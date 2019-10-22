@@ -39,7 +39,6 @@ class TripViewController: UIViewController {
         guard let index = tripTableView.indexPathForSelectedRow,
             let destinationVC = segue.destination as? PackingListViewController else { return }
         let trip = TripController.shared.trips[index.row]
-        // use to retrieve to populate tab data
         TripController.shared.tripForAllTabs = trip
         destinationVC.trip = trip
         
@@ -49,7 +48,6 @@ class TripViewController: UIViewController {
         let storyBoard = UIStoryboard(name: "CreateTrip", bundle: nil)
         guard let createTripViewController = storyBoard.instantiateViewController(withIdentifier: "CreateTripViewController") as? CreateTripViewController else { return }
         
-        // push the create trip VC
         self.navigationController?.pushViewController(createTripViewController, animated: true)
     }
 }

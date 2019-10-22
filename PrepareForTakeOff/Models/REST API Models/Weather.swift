@@ -63,3 +63,10 @@ struct Wind: Codable {
         case deg
     }
 }
+extension WeatherDetails: Equatable {
+    static func == (lhs: WeatherDetails, rhs: WeatherDetails) -> Bool {
+        return lhs.timestampOfForecast == rhs.timestampOfForecast
+    }
+    
+    
+}

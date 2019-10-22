@@ -26,7 +26,13 @@ extension Date {
     // for the display on the table view 
     func convertToViewableDate() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "E, MMM d, yyyy @ h:mm a"
+        formatter.dateFormat = "E, MMM d, yyyy 'at' h:mm a"
         return formatter.string(from: self)
     }
+    
+    var day: Int? {
+        let components = Calendar.current.dateComponents([.day], from: self)
+        return components.day
+    }
 }
+

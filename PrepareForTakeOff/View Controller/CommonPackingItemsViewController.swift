@@ -14,8 +14,6 @@ class CommonPackingItemsViewController: UIViewController {
     
     @IBOutlet weak var addedConfirmationView: UIView!
     
-    //var customItems = PackingWordBankController.shared.wordBank
-    
     var selectedItems: [String] = []
     
     override func viewDidLoad() {

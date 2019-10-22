@@ -24,13 +24,13 @@ class WeatherController {
         // add components to url
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         
-        //let unitsQuery = URLQueryItem(name: "units", value: "imperial")
+        let unitsQuery = URLQueryItem(name: "units", value: "imperial")
         
         let cityIDQuery = URLQueryItem(name: "id", value: cityID)
                 
         let apiKeyQuery = URLQueryItem(name: "appid", value: apiKey)
         
-        components?.queryItems = [cityIDQuery, apiKeyQuery]
+        components?.queryItems = [cityIDQuery, unitsQuery, apiKeyQuery]
         
         guard let finalURL = components?.url else { completion(nil); return }
         

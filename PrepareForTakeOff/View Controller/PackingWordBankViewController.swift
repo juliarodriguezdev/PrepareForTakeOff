@@ -19,9 +19,6 @@ class PackingWordBankViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var addedConfirmationView: UIView!
     
-    //var trip: Trip?
-    
-    // source of truth
     var selectionPackingItems: [String]?
 
     var itemsForTrip: [String] = []
@@ -33,10 +30,7 @@ class PackingWordBankViewController: UIViewController, UITextFieldDelegate {
         addedConfirmationView.alpha = 0
         addedConfirmationView.layer.masksToBounds = true
         addedConfirmationView.layer.cornerRadius = 10
-     
-       // title = trip?.name
     
-
     }
     
     @IBAction func addToPackingListButtonTapped(_ sender: UIButton) {

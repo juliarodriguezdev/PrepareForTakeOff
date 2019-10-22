@@ -49,13 +49,13 @@ class WeatherTableViewCell: UITableViewCell {
         if let iconName = weatherFromArray?.icon {
             icon.image = UIImage(named: iconName)
         }
-        temperatureLabel.text = "\(weatherDisplay.main.temp)"
-        pressureLabel.text = "\(weatherDisplay.main.pressure)"
-        humidityLabel.text = "\(weatherDisplay.main.humidity)"
-        sealevelLabel.text = "\(weatherDisplay.main.seaLevel)"
-        groundlevelLabel.text = "\(weatherDisplay.main.groundLevel)"
-        windspeedLabel.text = "\(weatherDisplay.wind.speed)"
-        windDegreesLabel.text = "\(weatherDisplay.wind.deg)"
+        temperatureLabel.text = "Temperature: \(weatherDisplay.main.temp)"
+        pressureLabel.text = "Pressure: \(weatherDisplay.main.pressure)"
+        humidityLabel.text = "Humidity: \(weatherDisplay.main.humidity)"
+        sealevelLabel.text = "Sea Level: \(weatherDisplay.main.seaLevel)"
+        groundlevelLabel.text = "Ground Level: \(weatherDisplay.main.groundLevel)"
+        windspeedLabel.text = "Wind Speed: \(weatherDisplay.wind.speed)"
+        windDegreesLabel.text = "Wind Degrees: \(weatherDisplay.wind.deg)"
         
     }
 }
