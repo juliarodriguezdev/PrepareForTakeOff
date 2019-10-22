@@ -23,11 +23,16 @@ class WeatherViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchWeatherResults()
+    }
+    
     func fetchWeatherResults() {
        guard let trip = TripController.shared.tripForAllTabs else { return }
     
        let cityID = TripController.shared.fetchCityIDNumber(trip: trip)
-        
+        print("The city ID is: \(cityID)")
         if cityID != "" {
             WeatherController.shared.fetch5DayCityIDWeatherForecast(cityID: cityID) { (weatherDetails) in
                 if let weatherDetailsFetched = weatherDetails {
@@ -39,17 +44,29 @@ class WeatherViewController: UIViewController {
             }
          // no cityID found
         } else if cityID == ""{
-            if let city = trip.destinationCity, let countryCode = trip.destinationCountryCode {
+            if var city = trip.destinationCity, let countryCode = trip.destinationCountryCode {
                 WeatherController.shared.fetch5DayCityCountryCodeForecast(city: city, countryCode: countryCode) { (cityCountryWeatherDetails) in
                     if let weatherFetched = cityCountryWeatherDetails {
                         self.weatherResults = weatherFetched
                         DispatchQueue.main.async {
                             self.weatherTableView.reloadData()
                         }
+                    } else {
+                        // append county
+                        city.append(" county")
+                        print("City and County String is: \(city)")
+                        WeatherController.shared.fetch5DayCityCountryCodeForecast(city: city, countryCode: countryCode) { (cityCountyResults) in
+                            if let cityCountryFetched = cityCountyResults {
+                                self.weatherResults = cityCountryFetched
+                                DispatchQueue.main.async {
+                                    self.weatherTableView.reloadData()
+                                }
+                            }
+                        }
                     }
                 }
                 
-            }
+            } // end of cityID = ""
         }
     }
 

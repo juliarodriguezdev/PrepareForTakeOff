@@ -64,6 +64,7 @@ class WeatherController {
         guard let url = baseURL else { completion(nil); return }
         
         let cityCountryCode = "\(city),\(countryCode)"
+        print("q = \(cityCountryCode)")
         
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         
@@ -93,7 +94,7 @@ class WeatherController {
                 let weatherTopLevelJson = try jsonDecoder.decode(WeatherTopLevelJSON.self, from: data)
                 completion(weatherTopLevelJson.list)
             } catch {
-                print("Failed to decode the data")
+                print("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
                 completion(nil)
                 return
             }

@@ -46,50 +46,17 @@ class EventsTableViewCell: UITableViewCell {
         var filteredDescription: String {
             let description = event.description
             var placeHolderDescription = ""
-            if let removeSyntax = description?.replacingOccurrences(of: "<p>", with: "") {
-                placeHolderDescription = removeSyntax
+            
+            if let str = description?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) {
+                placeHolderDescription = str
                 
-                if removeSyntax.contains("<strong>") == true {
-                    let removeStrong = removeSyntax.replacingOccurrences(of: "<strong>", with: "")
-                    placeHolderDescription = removeStrong
-                    
-                    if removeStrong.contains("</strong>") == true {
-                        let removeAgainStrong = removeStrong.replacingOccurrences(of: "</strong", with: "")
-                        placeHolderDescription = removeAgainStrong
-                        
-                        if removeAgainStrong.contains("<br>") == true {
-                            let removeBR = removeAgainStrong.replacingOccurrences(of: "<br>", with: "")
-                            placeHolderDescription = removeBR
-                            
-                            if removeBR.contains("<em>") == true {
-                                let removeEM = removeBR.replacingOccurrences(of: "<em>", with: "")
-                                placeHolderDescription = removeEM
-                                
-                                if removeEM.contains("</em>") == true {
-                                    let removeAgainEM = removeEM.replacingOccurrences(of: "</em>", with: "")
-                                    placeHolderDescription = removeAgainEM
-                                    
-                                    if removeAgainEM.contains(">") == true {
-                                        let removeRightCarrot = removeAgainEM.replacingOccurrences(of: ">", with: "")
-                                        placeHolderDescription = removeRightCarrot
-                                        
-                                        if removeRightCarrot.contains("</p>") == true {
-                                            let removeAgainP = removeRightCarrot.replacingOccurrences(of: "</p>", with: "")
-                                            placeHolderDescription = removeAgainP
-                                            
-                                            if removeAgainP.contains("&#39;") == true {
-                                                let removeSymbols = removeAgainP.replacingOccurrences(of: "&#39;", with: "'")
-                                                placeHolderDescription = removeSymbols
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                if str.contains("&#39;") == true {
+                    let removeExcess = str.replacingOccurrences(of: "&#39;", with: "'", options: .literal, range: nil)
+                    placeHolderDescription = removeExcess
                 }
+                
             }
-          
+                      
             let trimmedString = placeHolderDescription.trimmingCharacters(in: .whitespacesAndNewlines)
             return trimmedString
         }

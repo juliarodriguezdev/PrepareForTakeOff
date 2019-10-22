@@ -152,6 +152,7 @@ class CreateTripViewController: UIViewController {
             let stateCode = TripController.shared.fetchStateCode(stateFullName: userPlaceHolderText)
             state = stateCode
             isoCountryCode = "US"
+            isoDestinationCurrencyCode = "USD"
             isUSA = true
         
             // Abroad Selected

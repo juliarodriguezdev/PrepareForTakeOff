@@ -23,6 +23,7 @@ class PointOfInterestViewController: UIViewController {
         // add networking to check for internet
         // call func to make api call
         // Do any additional setup after loading the view.
+        self.tabBarController?.tabBar.isHidden = true 
     }
     
     func fetchPointOfInterestResults() {

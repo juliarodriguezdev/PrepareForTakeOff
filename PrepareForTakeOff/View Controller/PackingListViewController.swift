@@ -30,11 +30,7 @@ class PackingListViewController: UIViewController {
         self.packingTableView.reloadData()
     }
     
-    @IBAction func addPackingItemTapped(_ sender: UIBarButtonItem) {
-        // navigate to the packing bank VC
-        
-    }
-    
+   
     @IBAction func editTripButtonTapped(_ sender: UIButton) {
         // navigate to edit trip details VC
     }
@@ -48,17 +44,6 @@ class PackingListViewController: UIViewController {
             infoLabel.text = "Packing list for upcoming tirp "
         }
     }
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationVC = segue.destination as? PackingWordBankViewController else { return }
-        let trip = self.trip
-        destinationVC.trip = trip
-    }
-
 
 }
 

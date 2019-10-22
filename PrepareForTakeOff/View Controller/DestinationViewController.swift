@@ -16,6 +16,7 @@ class DestinationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
         destinationTableView.delegate = self
         destinationTableView.dataSource = self
         fetchDestinationInfoResults()

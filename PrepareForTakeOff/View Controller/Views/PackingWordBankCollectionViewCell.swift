@@ -12,4 +12,6 @@ class PackingWordBankCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var wordBankLabel: UILabel!
     
+    
+    
 }

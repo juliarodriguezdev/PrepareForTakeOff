@@ -8,18 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		6A007016235D6B3100134BB1 /* StringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A007015235D6B3100134BB1 /* StringFormatter.swift */; };
+		6A007018235E263300134BB1 /* DestinationOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A007017235E263300134BB1 /* DestinationOptionsViewController.swift */; };
 		6A119D0A2350E4000005A838 /* PackingWordBankController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A119D092350E4000005A838 /* PackingWordBankController.swift */; };
 		6A119D10235190420005A838 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A119D0F235190420005A838 /* TripTableViewCell.swift */; };
 		6A28D14023541BED00D34ADD /* PackingWordBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A28D13F23541BED00D34ADD /* PackingWordBankViewController.swift */; };
+		6A30D4BE235E4AB50085D7D6 /* PackingCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A30D4BD235E4AB50085D7D6 /* PackingCategories.swift */; };
+		6A30D4C0235E62260085D7D6 /* PackingCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A30D4BF235E62260085D7D6 /* PackingCategoriesViewController.swift */; };
 		6A3836AA235BC6D4009E2A18 /* DoubleFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3836A9235BC6D4009E2A18 /* DoubleFormatter.swift */; };
 		6A3836AC235BCC24009E2A18 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3836AB235BCC24009E2A18 /* Formatter.swift */; };
 		6A3836AE235D0511009E2A18 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3836AD235D0511009E2A18 /* Event.swift */; };
 		6A3836B0235D0921009E2A18 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3836AF235D0921009E2A18 /* EventController.swift */; };
-		6A3836B2235D0C69009E2A18 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A3836B1235D0C69009E2A18 /* Events.storyboard */; };
 		6A3836B4235D0CEC009E2A18 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3836B3235D0CEC009E2A18 /* EventsViewController.swift */; };
 		6A3A3B32234D72E700D91338 /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3A3B31234D72E700D91338 /* StateHelper.swift */; };
 		6A3A3B34234D817A00D91338 /* Trip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A3A3B33234D817A00D91338 /* Trip.storyboard */; };
-		6A3A3B36234D81A900D91338 /* PointOfInterest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A3A3B35234D81A900D91338 /* PointOfInterest.storyboard */; };
 		6A3A3B38234D81B700D91338 /* DestinationInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A3A3B37234D81B700D91338 /* DestinationInfo.storyboard */; };
 		6A3A3B3A234D81C200D91338 /* Weather.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A3A3B39234D81C200D91338 /* Weather.storyboard */; };
 		6A3A3B3C234D81D100D91338 /* CurrencyExchange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A3A3B3B234D81D100D91338 /* CurrencyExchange.storyboard */; };
@@ -61,6 +62,7 @@
 		6AB1AF0C2357C64500708472 /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1AF0B2357C64500708472 /* DestinationViewController.swift */; };
 		6AB1AF0E2357C6CF00708472 /* DestinationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1AF0D2357C6CF00708472 /* DestinationTableViewCell.swift */; };
 		6AC3123F235B8E8B00EE49C9 /* CuurencyNameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3123E235B8E8B00EE49C9 /* CuurencyNameHelper.swift */; };
+		6ACE6F1C235E8FEB00AA53A6 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE6F1B235E8FEB00AA53A6 /* StyleGuide.swift */; };
 		6ADBD86E234EBB2E00A98A38 /* CreateTripPart2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADBD86D234EBB2E00A98A38 /* CreateTripPart2ViewController.swift */; };
 		6ADBD870234EC67000A98A38 /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = 6ADBD86F234EC67000A98A38 /* city.list.json */; };
 		6ADBD872234EDE0200A98A38 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADBD871234EDE0200A98A38 /* NavigationViewController.swift */; };
@@ -75,18 +77,19 @@
 
 /* Begin PBXFileReference section */
 		6A007015235D6B3100134BB1 /* StringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringFormatter.swift; sourceTree = "<group>"; };
+		6A007017235E263300134BB1 /* DestinationOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationOptionsViewController.swift; sourceTree = "<group>"; };
 		6A119D092350E4000005A838 /* PackingWordBankController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingWordBankController.swift; sourceTree = "<group>"; };
 		6A119D0F235190420005A838 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		6A28D13F23541BED00D34ADD /* PackingWordBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingWordBankViewController.swift; sourceTree = "<group>"; };
+		6A30D4BD235E4AB50085D7D6 /* PackingCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingCategories.swift; sourceTree = "<group>"; };
+		6A30D4BF235E62260085D7D6 /* PackingCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingCategoriesViewController.swift; sourceTree = "<group>"; };
 		6A3836A9235BC6D4009E2A18 /* DoubleFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleFormatter.swift; sourceTree = "<group>"; };
 		6A3836AB235BCC24009E2A18 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		6A3836AD235D0511009E2A18 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		6A3836AF235D0921009E2A18 /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
-		6A3836B1235D0C69009E2A18 /* Events.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
 		6A3836B3235D0CEC009E2A18 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		6A3A3B31234D72E700D91338 /* StateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHelper.swift; sourceTree = "<group>"; };
 		6A3A3B33234D817A00D91338 /* Trip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trip.storyboard; sourceTree = "<group>"; };
-		6A3A3B35234D81A900D91338 /* PointOfInterest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PointOfInterest.storyboard; sourceTree = "<group>"; };
 		6A3A3B37234D81B700D91338 /* DestinationInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DestinationInfo.storyboard; sourceTree = "<group>"; };
 		6A3A3B39234D81C200D91338 /* Weather.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Weather.storyboard; sourceTree = "<group>"; };
 		6A3A3B3B234D81D100D91338 /* CurrencyExchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CurrencyExchange.storyboard; sourceTree = "<group>"; };
@@ -130,6 +133,7 @@
 		6AB1AF0B2357C64500708472 /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		6AB1AF0D2357C6CF00708472 /* DestinationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationTableViewCell.swift; sourceTree = "<group>"; };
 		6AC3123E235B8E8B00EE49C9 /* CuurencyNameHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuurencyNameHelper.swift; sourceTree = "<group>"; };
+		6ACE6F1B235E8FEB00AA53A6 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		6ADBD86D234EBB2E00A98A38 /* CreateTripPart2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripPart2ViewController.swift; sourceTree = "<group>"; };
 		6ADBD86F234EC67000A98A38 /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.list.json; sourceTree = "<group>"; };
 		6ADBD871234EDE0200A98A38 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 				6A3836A9235BC6D4009E2A18 /* DoubleFormatter.swift */,
 				6A3836AB235BCC24009E2A18 /* Formatter.swift */,
 				6A007015235D6B3100134BB1 /* StringFormatter.swift */,
+				6ACE6F1B235E8FEB00AA53A6 /* StyleGuide.swift */,
 			);
 			path = "Helper+Extensions";
 			sourceTree = "<group>";
@@ -190,11 +195,9 @@
 				6A3A3B3E234D822100D91338 /* Main.storyboard */,
 				6A6C6EB3234A99FE003B42DC /* CreateTrip.storyboard */,
 				6A3A3B33234D817A00D91338 /* Trip.storyboard */,
-				6A3A3B35234D81A900D91338 /* PointOfInterest.storyboard */,
 				6A3A3B37234D81B700D91338 /* DestinationInfo.storyboard */,
 				6A3A3B39234D81C200D91338 /* Weather.storyboard */,
 				6A3A3B3B234D81D100D91338 /* CurrencyExchange.storyboard */,
-				6A3836B1235D0C69009E2A18 /* Events.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -240,6 +243,8 @@
 				6A4D0D98235806910035536E /* WeatherViewController.swift */,
 				6A685190235A593E004656A1 /* CurrencyExchangeViewController.swift */,
 				6A3836B3235D0CEC009E2A18 /* EventsViewController.swift */,
+				6A007017235E263300134BB1 /* DestinationOptionsViewController.swift */,
+				6A30D4BF235E62260085D7D6 /* PackingCategoriesViewController.swift */,
 				6A119D11235190480005A838 /* Views */,
 			);
 			path = "View Controller";
@@ -296,6 +301,7 @@
 				6A3A3B44234E3F5300D91338 /* Trip+Convenience.swift */,
 				6ADBD8752350530B00A98A38 /* PackingComponent+Convenience.swift */,
 				6ADBD8792350543400A98A38 /* PackingWordBank+Convenience.swift */,
+				6A30D4BD235E4AB50085D7D6 /* PackingCategories.swift */,
 				6A9B7BB0235640630025E989 /* PrepareForTakeOff.xcdatamodeld */,
 				6A3A3B40234DA2FF00D91338 /* REST API Models */,
 			);
@@ -380,10 +386,8 @@
 				6A6C6ED4234C188E003B42DC /* history.city.list.json in Resources */,
 				6A6C6EBA234A9A00003B42DC /* Assets.xcassets in Resources */,
 				6ADBD870234EC67000A98A38 /* city.list.json in Resources */,
-				6A3A3B36234D81A900D91338 /* PointOfInterest.storyboard in Resources */,
 				6A6C6EB5234A99FE003B42DC /* CreateTrip.storyboard in Resources */,
 				6A3A3B3F234D822100D91338 /* Main.storyboard in Resources */,
-				6A3836B2235D0C69009E2A18 /* Events.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +400,7 @@
 			files = (
 				6A3A3B47234E443F00D91338 /* TripController.swift in Sources */,
 				6AAE3EF3235670BD0068DFCE /* PointOfInterestPhotosCollectionViewCell.swift in Sources */,
+				6A007018235E263300134BB1 /* DestinationOptionsViewController.swift in Sources */,
 				6A685191235A593E004656A1 /* CurrencyExchangeViewController.swift in Sources */,
 				6ADBD86E234EBB2E00A98A38 /* CreateTripPart2ViewController.swift in Sources */,
 				6AB1AF0C2357C64500708472 /* DestinationViewController.swift in Sources */,
@@ -404,6 +409,7 @@
 				6A3A3B45234E3F5300D91338 /* Trip+Convenience.swift in Sources */,
 				6A6C6EAE234A99FE003B42DC /* AppDelegate.swift in Sources */,
 				6A9B7BB2235640630025E989 /* PrepareForTakeOff.xcdatamodeld in Sources */,
+				6A30D4BE235E4AB50085D7D6 /* PackingCategories.swift in Sources */,
 				6A6C6EC6234AD0B8003B42DC /* DestinationInfoController.swift in Sources */,
 				6A3A3B49234E452200D91338 /* DateFormatter.swift in Sources */,
 				6A3836AA235BC6D4009E2A18 /* DoubleFormatter.swift in Sources */,
@@ -416,9 +422,11 @@
 				6A80F85F2354030A002B7C97 /* PackingListTableViewCell.swift in Sources */,
 				6AC3123F235B8E8B00EE49C9 /* CuurencyNameHelper.swift in Sources */,
 				6ADBD8762350530B00A98A38 /* PackingComponent+Convenience.swift in Sources */,
+				6A30D4C0235E62260085D7D6 /* PackingCategoriesViewController.swift in Sources */,
 				6A007016235D6B3100134BB1 /* StringFormatter.swift in Sources */,
 				6A6C6EDA234C3355003B42DC /* Weather.swift in Sources */,
 				6A3A3B4E234E8E7400D91338 /* CreateTripViewController.swift in Sources */,
+				6ACE6F1C235E8FEB00AA53A6 /* StyleGuide.swift in Sources */,
 				6A80F85D235402D4002B7C97 /* PackingListViewController.swift in Sources */,
 				6A6C6ED6234C1E95003B42DC /* TopObject.swift in Sources */,
 				6A6C6EE4234D1DD0003B42DC /* CurrencyCodesHelper.swift in Sources */,

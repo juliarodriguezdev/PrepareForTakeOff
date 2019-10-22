@@ -19,10 +19,8 @@
                     <connections>
                         <segue destination="B1w-zN-hoJ" kind="relationship" relationship="viewControllers" id="vA2-6j-ekA"/>
                         <segue destination="GDs-Cz-6FY" kind="relationship" relationship="viewControllers" id="ZXq-fz-Xhu"/>
-                        <segue destination="r8N-bU-xGu" kind="relationship" relationship="viewControllers" id="aFZ-f3-VQT"/>
                         <segue destination="UXD-VX-WuB" kind="relationship" relationship="viewControllers" id="fU6-1U-zxW"/>
                         <segue destination="cgT-fO-fmI" kind="relationship" relationship="viewControllers" id="Fui-ZL-6wZ"/>
-                        <segue destination="mGs-AC-WAZ" kind="relationship" relationship="viewControllers" id="qM3-Xb-AYG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvU-Xf-iqY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -48,26 +46,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drN-0v-zlx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="285" y="-158"/>
-        </scene>
-        <!--Events-->
-        <scene sceneID="65G-ud-xBc">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Events" id="mGs-AC-WAZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="cBM-0M-plh"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L75-r4-Web" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="314" y="256"/>
-        </scene>
-        <!--PointOfInterest-->
-        <scene sceneID="FIT-eW-HUi">
-            <objects>
-                <viewControllerPlaceholder storyboardName="PointOfInterest" id="r8N-bU-xGu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="VcK-5v-AKX"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qXs-kw-OT4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="286" y="-22"/>
         </scene>
         <!--Weather-->
         <scene sceneID="aoc-jQ-Zbw">

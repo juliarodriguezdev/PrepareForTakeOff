@@ -122,6 +122,7 @@ class TripController {
             // Antartica doesn't have a currency
             return ""
         }
+    
         
     }
     
@@ -129,7 +130,7 @@ class TripController {
         // inside USA
         // array of all cities to loop through
         var cityIDForFetch: String = ""
-       guard let cityName = trip.destinationCity,
+        guard let cityName = trip.destinationCity,
         let countryCode = trip.destinationCountryCode else { return ""}
         let allCities = CityResultsController.shared.cities
         

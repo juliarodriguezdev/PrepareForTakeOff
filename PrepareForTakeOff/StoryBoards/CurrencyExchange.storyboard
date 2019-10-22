@@ -76,6 +76,7 @@
                         <outlet property="calculateButton" destination="7cG-Kt-BQZ" id="nPI-Rc-Sez"/>
                         <outlet property="countryName" destination="iDZ-KR-9LJ" id="Eb2-o7-Eob"/>
                         <outlet property="currencyLabel" destination="9rf-KX-S4H" id="3Si-xf-cqa"/>
+                        <outlet property="descriptionLabel" destination="CQq-Ja-wpP" id="mXb-51-vpF"/>
                         <outlet property="resultLabel" destination="xt8-da-yjP" id="kmU-MA-qhB"/>
                     </connections>
                 </viewController>

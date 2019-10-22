@@ -23,6 +23,7 @@ class EventsViewController: UIViewController {
         eventTableView.delegate = self
         eventTableView.dataSource = self
         fetchEventResults()
+        self.tabBarController?.tabBar.isHidden = true 
     }
     
     override func viewDidAppear(_ animated: Bool) {
