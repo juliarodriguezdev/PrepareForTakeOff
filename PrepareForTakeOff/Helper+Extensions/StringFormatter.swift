@@ -20,4 +20,37 @@ extension String {
         }
         return date
     }
+    
+    func convertToHeaderString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        guard let transformedDate = formatter.date(from: self) else { return self}
+        
+        
+        formatter.dateFormat = "EEEE, MMMM d, yyyy"
+        let formatedDateString = formatter.string(from: transformedDate)
+        
+        return formatedDateString
+    }
+    
+    func convertToRowTitle() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        guard let transformDate = formatter.date(from: self) else { return self}
+        
+        formatter.dateFormat = "MMM d, yyyy 'at' h:mm a"
+        let formmatedRowString = formatter.string(from: transformDate)
+        
+        return formmatedRowString
+    }
+    
+    func capitalizingFirstletter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstletter()
+    }
+    
 }

@@ -29,6 +29,11 @@ extension Date {
         formatter.dateFormat = "E, MMM d, yyyy 'at' h:mm a"
         return formatter.string(from: self)
     }
+    func convertToDescription() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+        return formatter.string(from: self)
+    }
     
     var day: Int? {
         let components = Calendar.current.dateComponents([.day], from: self)

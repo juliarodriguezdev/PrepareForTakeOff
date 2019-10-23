@@ -41,10 +41,4 @@ class PackingComponentController {
         TripController.shared.saveToPersistentStore()
     }
     
-    // not needed maybe
-//    private func fetchPackingItems() -> [PackingComponent] {
-//        let request: NSFetchRequest<PackingComponent> = PackingComponent.fetchRequest()
-//        return (try? CoreDataStack.managedObjectContext.fetch(request)) ?? []
-//    }
-    
 }

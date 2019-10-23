@@ -100,13 +100,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNj-OS-rbh">
-                                <rect key="frame" x="4" y="88" width="406" height="67.5"/>
+                                <rect key="frame" x="4" y="88" width="406" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OuR-TX-Wcg" userLabel="Packing Status">
+                                <rect key="frame" x="0.0" y="142" width="414" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zeQ-4l-PtC">
-                                <rect key="frame" x="0.0" y="157.5" width="414" height="568.5"/>
+                                <rect key="frame" x="0.0" y="200" width="414" height="526"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="packingListCell" rowHeight="60" id="3Oa-JR-UsB" customClass="PackingListTableViewCell" customModule="PrepareForTakeOff" customModuleProvider="target">
@@ -122,6 +128,9 @@
                                                         <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kor-yf-98H">
                                                             <rect key="frame" x="0.0" y="-1" width="41.5" height="39"/>
                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <connections>
+                                                                <action selector="isCompleteButtonTapped:" destination="3Oa-JR-UsB" eventType="touchUpInside" id="6zM-nI-z9L"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0L-dj-aAp">
                                                             <rect key="frame" x="49.5" y="-1" width="324.5" height="39"/>
@@ -168,13 +177,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="HAA-eI-aQz" firstAttribute="trailing" secondItem="xNj-OS-rbh" secondAttribute="trailing" constant="4" id="3ES-iz-0FF"/>
+                            <constraint firstItem="HAA-eI-aQz" firstAttribute="trailing" secondItem="OuR-TX-Wcg" secondAttribute="trailing" id="3FS-u5-ybb"/>
+                            <constraint firstItem="OuR-TX-Wcg" firstAttribute="height" secondItem="HAA-eI-aQz" secondAttribute="height" multiplier="0.08" id="7ky-Sb-YAE"/>
+                            <constraint firstItem="OuR-TX-Wcg" firstAttribute="leading" secondItem="HAA-eI-aQz" secondAttribute="leading" id="91r-dc-EaG"/>
                             <constraint firstItem="zeQ-4l-PtC" firstAttribute="leading" secondItem="HAA-eI-aQz" secondAttribute="leading" id="C0v-YV-BPX"/>
                             <constraint firstItem="zeQ-4l-PtC" firstAttribute="centerX" secondItem="7yM-zv-psW" secondAttribute="centerX" id="DWM-uK-2nT"/>
+                            <constraint firstItem="zeQ-4l-PtC" firstAttribute="top" secondItem="OuR-TX-Wcg" secondAttribute="bottom" constant="4" id="XDB-UL-z3R"/>
                             <constraint firstItem="HAA-eI-aQz" firstAttribute="trailing" secondItem="zeQ-4l-PtC" secondAttribute="trailing" id="gRH-5q-9Ix"/>
                             <constraint firstItem="xNj-OS-rbh" firstAttribute="top" secondItem="HAA-eI-aQz" secondAttribute="top" id="luW-V8-MEN"/>
-                            <constraint firstItem="zeQ-4l-PtC" firstAttribute="top" secondItem="xNj-OS-rbh" secondAttribute="bottom" constant="2" id="nxC-RB-ULm"/>
+                            <constraint firstItem="OuR-TX-Wcg" firstAttribute="top" secondItem="xNj-OS-rbh" secondAttribute="bottom" id="nI9-vX-x2o"/>
                             <constraint firstItem="HAA-eI-aQz" firstAttribute="trailing" secondItem="QtI-pl-EB0" secondAttribute="trailing" constant="8" id="oyS-Ve-n8e"/>
-                            <constraint firstItem="xNj-OS-rbh" firstAttribute="height" secondItem="HAA-eI-aQz" secondAttribute="height" multiplier="0.1" id="pn5-YV-iCY"/>
+                            <constraint firstItem="xNj-OS-rbh" firstAttribute="height" secondItem="HAA-eI-aQz" secondAttribute="height" multiplier="0.08" id="pn5-YV-iCY"/>
                             <constraint firstItem="QtI-pl-EB0" firstAttribute="top" secondItem="zeQ-4l-PtC" secondAttribute="bottom" constant="8" id="wEA-JP-o7u"/>
                             <constraint firstItem="HAA-eI-aQz" firstAttribute="bottom" secondItem="QtI-pl-EB0" secondAttribute="bottom" id="wSH-F3-aW6"/>
                             <constraint firstItem="xNj-OS-rbh" firstAttribute="leading" secondItem="HAA-eI-aQz" secondAttribute="leading" constant="4" id="xa0-AW-r9C"/>
@@ -190,6 +203,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="infoLabel" destination="xNj-OS-rbh" id="LKQ-Kd-dnI"/>
+                        <outlet property="packingStatusLabel" destination="OuR-TX-Wcg" id="k2X-zb-z7P"/>
                         <outlet property="packingTableView" destination="zeQ-4l-PtC" id="j1p-8r-90T"/>
                     </connections>
                 </viewController>

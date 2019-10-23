@@ -282,6 +282,7 @@
 		6A6C6EC4234A9DD8003B42DC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6ACE6F1D235FA81500AA53A6 /* Fonts */,
 				6A6C6EAD234A99FE003B42DC /* AppDelegate.swift */,
 				6A6C6EAF234A99FE003B42DC /* SceneDelegate.swift */,
 				6A6C6ED3234C188E003B42DC /* history.city.list.json */,
@@ -317,6 +318,13 @@
 				6A3A3B41234E382D00D91338 /* REST API Model Controllers */,
 			);
 			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		6ACE6F1D235FA81500AA53A6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

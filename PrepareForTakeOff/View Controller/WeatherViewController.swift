@@ -10,8 +10,9 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
-    
     @IBOutlet weak var weatherTableView: UITableView!
+    
+    @IBOutlet weak var weatherDescriptionLabel: UILabel!
     
     var weatherResults: [WeatherDetails] = []
     var groupedWeatherResults : [String: [WeatherDetails]]?
@@ -22,11 +23,13 @@ class WeatherViewController: UIViewController {
         weatherTableView.delegate = self
         weatherTableView.dataSource = self
         fetchWeatherResults()
+        updateWeatherDescription()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchWeatherResults()
+        updateWeatherDescription()
     }
     
     func fetchWeatherResults() {
@@ -83,27 +86,61 @@ class WeatherViewController: UIViewController {
         self.sectionTitles = groupedWeatherResults?.keys.sorted() ?? []
     }
     
-}
-
-extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if sectionTitles.count > section {
-            return sectionTitles[section]
-        } else {
-            return "Empty"
+    func updateWeatherDescription() {
+        guard let tripDate = TripController.shared.tripForAllTabs?.date else { return }
+        let today = Date()
+        let components = Calendar.current.dateComponents([.day], from: today, to: tripDate)
+        
+        if let projectedWeather = Calendar.current.date(byAdding: .day, value: 5, to: today)?.convertToDescription() {
+            if let countdown = components.day {
+                let weatherAvailable = countdown - 5
+                
+                if countdown <= 5 {
+                    weatherDescriptionLabel.text = "Weather displayed from today to \(projectedWeather)"
+                } else if countdown > 5 {
+                    weatherDescriptionLabel.text = "Weather displayed from today to \(projectedWeather) \n\nCheck back in \(weatherAvailable) days \nfor weather update during your trip"
+                }
+                
+                
+            
+            }
         }
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        guard let groupedWeather = groupedWeatherResults else { return 0 }
+}
+
+extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        // ui label inherits from ui view
+        let headerLabel = UILabel()
+        headerLabel.backgroundColor = .systemTeal
+        headerLabel.textColor = .black
         
-        let keyNames = groupedWeather.map({$0.key})
-        return keyNames.count
+        headerLabel.font = UIFont(name: "NoteWorthy", size: 22)
+        headerLabel.textAlignment = .center
+         if sectionTitles.count > section {
+            headerLabel.text = sectionTitles[section].convertToHeaderString()
+               } else {
+            headerLabel.text = "No Weather to Display"
+               }
+        return headerLabel
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionTitles.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 260
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let groupedWeather = groupedWeatherResults,
             sectionTitles.count > section else { return 0 }
+        // example: value = groupedWeather[10-24-2019]
         let values = groupedWeather[sectionTitles[section]]
         return values?.count ?? 0
         //return weatherResults.count
