@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class CreateTripPart2ViewController: UIViewController {
 
@@ -84,12 +85,15 @@ class CreateTripPart2ViewController: UIViewController {
             guard let state = state else { return }
             
             TripController.shared.createTripWith(date: dateOfTrip, destinationCity: city, destinationCountryCode: isoCountryCode, destinationCountryName: destinationCountryName ?? isoCountryCode, destinationCurrencyCode: destinationCurrencyCode, destinationStateCode: state, inUSA: true, name: tripName, durationInDays: daysInt ?? 1)
+            scheduleNotification(notificationTitle: "Upcoming Trip Tomorrow", notificationBody: "Don't forget to pack ID, phone charger, & toothbrush", tripDate: dateOfTrip)
             print("Trip for USA was created")
         } else {
             // USA == false; abroad Trip (no state)
             TripController.shared.createTripWith(date: dateOfTrip, destinationCity: city, destinationCountryCode: isoCountryCode, destinationCountryName: destinationCountryName ?? isoCountryCode, destinationCurrencyCode: destinationCurrencyCode, destinationStateCode: nil, inUSA: false, name: tripName, durationInDays: daysInt ?? 1)
+            scheduleNotification(notificationTitle: "Upcoming Trip Tomorrow", notificationBody: "Don't forget to pack passport, phone charger, & toothbrush", tripDate: dateOfTrip)
             print("Trip for abroad was created")
         }
+        
         // show main trip VC
         showMainTripViewController()
         
@@ -103,6 +107,33 @@ class CreateTripPart2ViewController: UIViewController {
     @IBAction func tapGesture(_ sender: Any) {
         nameTextField.resignFirstResponder()
         dateTextField.resignFirstResponder()
+    }
+    
+    func scheduleNotification(notificationTitle: String, notificationBody: String, tripDate: Date) {
+        let content = UNMutableNotificationContent()
+        content.title = notificationTitle
+        content.body = notificationBody
+        content.sound = .default
+        content.badge = 1
+        
+        //let tripDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: tripDate)
+        if let triggerDate = Calendar.current.date(byAdding: .day, value: -1, to: tripDate) {
+            
+            var triggerDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .second], from: triggerDate)
+            triggerDateComponents.hour = 20
+            triggerDateComponents.minute = 42
+           // TODO: Add time to send notification, picker - time
+            // triggerDateComponents.hour = 8
+            let notificationTrigger = UNCalendarNotificationTrigger(dateMatching: triggerDateComponents, repeats: false)
+            
+            
+            let request = UNNotificationRequest(identifier: "1dayBeforeTrip", content: content, trigger: notificationTrigger)
+            
+            UNUserNotificationCenter.current().add(request) { (_) in
+                print("User asked for a local notification")
+            }
+        
+        }
     }
     
     // Helper Func for UI Alert

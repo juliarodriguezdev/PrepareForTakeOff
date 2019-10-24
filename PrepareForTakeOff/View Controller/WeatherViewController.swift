@@ -100,9 +100,6 @@ class WeatherViewController: UIViewController {
                 } else if countdown > 5 {
                     weatherDescriptionLabel.text = "Weather displayed from today to \(projectedWeather) \n\nCheck back in \(weatherAvailable) days \nfor weather update during your trip"
                 }
-                
-                
-            
             }
         }
     }
