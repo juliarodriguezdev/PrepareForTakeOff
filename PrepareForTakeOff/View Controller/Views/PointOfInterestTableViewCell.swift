@@ -16,7 +16,7 @@ class PointOfInterestTableViewCell: UITableViewCell {
         
     @IBOutlet weak var locationLabel: UILabel!
     
-    @IBOutlet weak var scoreLabel: UILabel!
+   // @IBOutlet weak var scoreLabel: UILabel!
         
     @IBOutlet weak var snippetLabel: UILabel!
     
@@ -33,7 +33,7 @@ class PointOfInterestTableViewCell: UITableViewCell {
         guard let pointOfInterest = pointOfInterest else { return }
         nameLabel.text = pointOfInterest.name
         print(pointOfInterest.name)
-        scoreLabel.text = "Score: " + String(format: "%.2f", pointOfInterest.score)
+        //scoreLabel.text = "Score: " + String(format: "%.2f", pointOfInterest.score)
 
         snippetLabel.text = pointOfInterest.snippet
         
@@ -47,7 +47,7 @@ class PointOfInterestTableViewCell: UITableViewCell {
                 return removeUnderScores
             }
         }
-        locationLabel.text = locationName
+        locationLabel.text = "\(locationName) | Score: " + String(format: "%.2f", pointOfInterest.score)
         photosCollectionView.reloadData()
     }
     

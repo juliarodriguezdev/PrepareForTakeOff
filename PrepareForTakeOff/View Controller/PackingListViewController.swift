@@ -10,10 +10,14 @@ import UIKit
 
 class PackingListViewController: UIViewController {
 
+    // landing pad
     var trip: Trip?
     
     var packingListWithSections = [String: [String]]()
     var packingSectionTitle = [String]()
+    
+    // set up with trip name from previous screen
+    @IBOutlet weak var tripNameLabel: UILabel!
     
     @IBOutlet weak var packingTableView: UITableView!
     
@@ -25,16 +29,21 @@ class PackingListViewController: UIViewController {
         super.viewDidLoad()
         packingTableView.delegate = self
         packingTableView.dataSource = self
+        self.view.backgroundColor = UIColor.travelBackground
+        self.packingTableView.backgroundColor = UIColor.travelBackground
         self.tabBarController?.tabBar.isHidden = false
-        guard let trip = trip?.name else { return }
-        self.title = "\(trip)"
+    
         updateCountDownView()
         updatePackedItems()
         createSectionPackingList()
+        guard let trip = trip?.name else { return }
+        self.tripNameLabel.text = "\(trip)"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+       
         updateCountDownView()
         updatePackedItems()
         createSectionPackingList()
@@ -44,7 +53,27 @@ class PackingListViewController: UIViewController {
    
     @IBAction func editTripButtonTapped(_ sender: UIButton) {
         // navigate to edit trip details VC
+        navigateToEditVC()
     }
+    
+    @IBAction func addItemsButtonTapped(_ sender: UIButton) {
+        // send to new storyboard to add items
+        navigateToAddItemsViewController()
+    }
+    @IBAction func packingListButtonTapped(_ sender: Any) {
+        navigateToAddItemsViewController()
+    }
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func acknowledgmentsButtonTapped(_ sender: Any) {
+         navigateToAcknowledgementsVC()
+    }
+    
+    
+    
     func updateCountDownView() {
         // TODO: Add progress, iscomplete / total item
         guard let tripDate = trip?.date else { return }
@@ -73,13 +102,24 @@ class PackingListViewController: UIViewController {
             if totalPackingList.count == 0 {
                 self.packingStatusLabel.text = "Add items to your packing list it's empty"
             } else if packedItems.count == 0 && totalPackingList.count > 0 {
-                self.packingStatusLabel.text = "\(totalPackingList.count) items to pack"
+                if totalPackingList.count == 1 {
+                    self.packingStatusLabel.text = "\(totalPackingList.count) item to pack"
+                } else {
+                    self.packingStatusLabel.text = "\(totalPackingList.count) items to pack"
+                }
+                
             } else if packedItems.count == totalPackingList.count {
-                self.packingStatusLabel.text = "Good job on packing all \(totalPackingList.count) items"
+                if packedItems.count == 1 {
+                    self.packingStatusLabel.text = "Single item is packed"
+                } else {
+                    self.packingStatusLabel.text = "All \(totalPackingList.count) items are packed"
+                    
+                }
+                
             } else if packedItems.count == totalPackingList.count - 1 {
                 self.packingStatusLabel.text = "\(packedItems.count) / \(totalPackingList.count) packed, you are almost done"
             } else {
-                self.packingStatusLabel.text = "\(packedItems.count) / \(totalPackingList.count) items already packed"
+                self.packingStatusLabel.text = "\(packedItems.count) / \(totalPackingList.count) items packed"
             }
             
         }
@@ -113,6 +153,26 @@ class PackingListViewController: UIViewController {
         packingListWithSections = foundItemsDictionary
         packingSectionTitle = packingListWithSections.keys.sorted()
     }
+    
+    func navigateToAddItemsViewController() {
+        let storyboard = UIStoryboard(name: "Trip", bundle: nil)
+        guard let addItemsViewController = storyboard.instantiateViewController(withIdentifier: "PackingCategoriesViewController") as? PackingCategoriesViewController else { return }
+        addItemsViewController.trip = trip
+        self.navigationController?.pushViewController(addItemsViewController, animated: true)
+    }
+    func navigateToEditVC() {
+        let storyboard = UIStoryboard(name: "Trip", bundle: nil)
+        guard let editTripViewController = storyboard.instantiateViewController(withIdentifier: "EditTripViewController") as? EditTripViewController else { return }
+        // maybe pass variable
+        editTripViewController.trip = trip
+        self.navigationController?.pushViewController(editTripViewController, animated: true)
+    }
+    
+    func navigateToAcknowledgementsVC() {
+        let storyboard = UIStoryboard(name: "Trip", bundle: nil)
+        guard let acknowledgementsViewController = storyboard.instantiateViewController(withIdentifier: "AcknowledgmentViewController") as? AcknowledgmentViewController else { return }
+        self.navigationController?.pushViewController(acknowledgementsViewController, animated: true)
+    }
 
 }
 
@@ -123,31 +183,43 @@ extension PackingListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 80
+        return 56
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerLabel = UILabel()
-        headerLabel.backgroundColor = .systemIndigo
+        let header = UIView()
+        let frame = CGRect(x: 0, y: 0, width: (self.view.frame.size.width) * 0.90, height:52 ) //(self.view.frame.size.height) * 0.1)
+        let myCustomView = UIImageView(frame: frame)
+        let myImage: UIImage = UIImage(named: "95300299-torn-paper-ribbons-with-jagged-edges-abstract-grange-paper-sheets-vector-set-ripped-paper-design-ban")!
+        myCustomView.image = myImage
+        myCustomView.contentMode = .scaleToFill
+       // myCustomView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        header.addSubview(myCustomView)
+        let frameLabel = CGRect(x: 15, y: 0, width: (self.view.frame.size.width) * 0.90, height: 52)
+        let headerLabel = UILabel(frame: frameLabel)
         headerLabel.textColor = .black
-        headerLabel.textAlignment = .center
+        headerLabel.font = UIFont(name: FontNames.fingerPaintRegular, size: 20)
+        headerLabel.textAlignment = .left
         if packingSectionTitle.count > section {
             headerLabel.text = packingSectionTitle[section]
         } else {
             headerLabel.text = ""
         }
-        return headerLabel
+        header.addSubview(headerLabel)
+        return header
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return trip?.packingList?.count ?? 0
         let item = packingListWithSections[packingSectionTitle[section]]
         return item?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "packingListCell", for: indexPath) as? PackingListTableViewCell else { return UITableViewCell() }
-        
+        cell.backgroundColor = UIColor.travelBackground
+        cell.selectionStyle = .none
         let sections = packingSectionTitle[indexPath.section]
         let packingItem = packingListWithSections[sections]?[indexPath.row]
         if let packingStringItem = packingItem {
@@ -167,16 +239,24 @@ extension PackingListViewController: UITableViewDelegate, UITableViewDataSource 
             for item in packingListCasted {
                 if item.packingItem == itemToPack {
                     PackingComponentController.shared.delete(packingItem: item)
+                    
                 }
             }
-            createSectionPackingList()
-            tableView.reloadData()
+           
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            UIView.animate(withDuration: 2.8, delay: 0, options: .curveLinear, animations: {
+                self.createSectionPackingList()
+                tableView.reloadData()
+                
+            })
+            
            
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 53
     }
  
 }

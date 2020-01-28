@@ -35,6 +35,17 @@ extension Date {
         return formatter.string(from: self)
     }
     
+    func depatureDateString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d "
+        return formatter.string(from: self)
+    }
+    func returnDateString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+        return formatter.string(from: self)
+    }
+    
     var day: Int? {
         let components = Calendar.current.dateComponents([.day], from: self)
         return components.day

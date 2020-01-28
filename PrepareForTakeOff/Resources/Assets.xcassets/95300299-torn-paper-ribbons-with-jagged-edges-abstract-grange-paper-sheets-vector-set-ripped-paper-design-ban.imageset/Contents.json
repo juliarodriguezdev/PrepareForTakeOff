@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "95300299-torn-paper-ribbons-with-jagged-edges-abstract-grange-paper-sheets-vector-set-ripped-paper-design-ban.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "95300299-torn-paper-ribbons-with-jagged-edges-abstract-grange-paper-sheets-vector-set-ripped-paper-design-ban@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "95300299-torn-paper-ribbons-with-jagged-edges-abstract-grange-paper-sheets-vector-set-ripped-paper-design-ban@3x.png",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

@@ -110,7 +110,7 @@ class TripController {
             countryCodePlaceHolder = countryRegionCode
             return countryCodePlaceHolder
         } else {
-            return countryFullName
+            return ""
         }
     }
     
@@ -150,7 +150,7 @@ class TripController {
             }
             
         }
-        print("City Id for fetch: \(cityIDForFetch)")
+        print("City Id from fetch: \(cityIDForFetch)")
         return cityIDForFetch
     }
     

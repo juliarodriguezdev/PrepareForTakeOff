@@ -45,6 +45,16 @@ extension String {
         return formmatedRowString
     }
     
+    func converToSoleTime() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        guard let timeSnapshot = formatter.date(from: self) else { return self}
+        formatter.dateFormat = "h:mm a"
+        return formatter.string(from: timeSnapshot)
+        
+       // return formattedTime
+    }
+    
     func capitalizingFirstletter() -> String {
         return prefix(1).capitalized + dropFirst()
     }

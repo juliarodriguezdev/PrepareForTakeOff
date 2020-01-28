@@ -11,6 +11,7 @@ import UIKit
 class DestinationOptionsViewController: UIViewController {
     
     
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var destinationButton: UIButton!
     @IBOutlet weak var destinationLabel: UILabel!
     
@@ -23,13 +24,16 @@ class DestinationOptionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = false
-        // Do any additional setup after loading the view.
+        //self.tabBarController?.tabBar.isHidden = false
+        self.view.backgroundColor = UIColor.travelBackground
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false 
+        self.tabBarController?.tabBar.isHidden = false
+        if let trip = TripController.shared.tripForAllTabs?.name {
+            nameLabel.text = "\(trip)"
+        }
     }
     
     @IBAction func destinationButtonTapped(_ sender: UIButton) {
