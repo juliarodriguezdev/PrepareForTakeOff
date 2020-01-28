@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vkp-nh-mML">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="2Cb-Lk-con">
+            <objects>
+                <tabBarController id="Vkp-nh-mML" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="HCa-OU-QD6"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HjK-51-01c">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="selectedImageTintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="B1w-zN-hoJ" kind="relationship" relationship="viewControllers" id="vA2-6j-ekA"/>
+                        <segue destination="GDs-Cz-6FY" kind="relationship" relationship="viewControllers" id="ZXq-fz-Xhu"/>
+                        <segue destination="UXD-VX-WuB" kind="relationship" relationship="viewControllers" id="fU6-1U-zxW"/>
+                        <segue destination="cgT-fO-fmI" kind="relationship" relationship="viewControllers" id="Fui-ZL-6wZ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zvU-Xf-iqY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-690" y="-22"/>
+        </scene>
+        <!--Trip-->
+        <scene sceneID="E6g-p3-Q25">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Trip" id="B1w-zN-hoJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Trip" id="C3a-0z-1xH"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PNB-RI-PkV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="235" y="-264"/>
+        </scene>
+        <!--DestinationInfo-->
+        <scene sceneID="Bpu-IY-htH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DestinationInfo" id="GDs-Cz-6FY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Dest. 411" id="tJe-ZA-Lmt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="drN-0v-zlx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="285" y="-158"/>
+        </scene>
+        <!--Weather-->
+        <scene sceneID="aoc-jQ-Zbw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Weather" id="UXD-VX-WuB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Weather" id="FH9-ef-S4Z"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yr5-Js-cgD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="254" y="68"/>
+        </scene>
+        <!--CurrencyExchange-->
+        <scene sceneID="7T4-eq-SuC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CurrencyExchange" id="cgT-fO-fmI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="$ Exchange" id="OqP-BB-NRA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UAP-GQ-Zm6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="301" y="184"/>
+        </scene>
+    </scenes>
+</document>

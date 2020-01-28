@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PackingComponent" representedClassName="PackingComponent" syncable="YES" codeGenerationType="class">
+        <attribute name="isComplete" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="item" optional="YES" attributeType="String"/>
+        <relationship name="packingWordBank" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PackingWordBank" inverseName="packingComponent" inverseEntity="PackingWordBank"/>
+        <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="packingComponent" inverseEntity="Trip"/>
+    </entity>
+    <entity name="PackingList" representedClassName="PackingList" syncable="YES" codeGenerationType="class">
+        <attribute name="dfsdf" attributeType="String"/>
+    </entity>
+    <entity name="PackingWordBank" representedClassName="PackingWordBank" syncable="YES" codeGenerationType="class">
+        <attribute name="reuseItem" attributeType="String"/>
+        <relationship name="packingComponent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PackingComponent" inverseName="packingWordBank" inverseEntity="PackingComponent"/>
+        <relationship name="packingList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PackingList"/>
+    </entity>
+    <entity name="Trip" representedClassName="Trip" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="destinationCity" attributeType="String"/>
+        <attribute name="destinationCountryCode" attributeType="String"/>
+        <attribute name="destinationCountryName" attributeType="String"/>
+        <attribute name="destinationCurrencyCode" attributeType="String"/>
+        <attribute name="destinationStateCode" optional="YES" attributeType="String"/>
+        <attribute name="inUSA" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="userCurrencyCode" attributeType="String"/>
+        <relationship name="packingComponent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PackingComponent" inverseName="trip" inverseEntity="PackingComponent"/>
+        <relationship name="packingList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PackingList"/>
+    </entity>
+    <elements>
+        <element name="Trip" positionX="-63" positionY="-18" width="128" height="208"/>
+        <element name="PackingList" positionX="-63" positionY="54" width="128" height="58"/>
+        <element name="PackingWordBank" positionX="-45" positionY="72" width="128" height="88"/>
+        <element name="PackingComponent" positionX="-36" positionY="81" width="128" height="103"/>
+    </elements>
 </model>
