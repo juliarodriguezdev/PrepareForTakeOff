@@ -11,7 +11,8 @@ import Foundation
 
 // https://free.currconv.com/api/v7/convert?q=USD_MXN&compact=ultra&apiKey=04cca92804dc3b53b6c4
 
-private let api_Key = "04cca92804dc3b53b6c4"
+// free api key: 04cca92804dc3b53b6c4
+private let api_Key = "cb1a4a5d2b2c4e80b786e526ad869bdd"
 
 class CurrencyExchangeRateController {
     // how to initialize a double
@@ -19,7 +20,7 @@ class CurrencyExchangeRateController {
     
     
     // base URL
-    let baseURL = URL(string: "https://free.currconv.com/api/v7/convert")
+    let baseURL = URL(string: "https://api.currconv.com/api/v7/convert")
     
     static let shared = CurrencyExchangeRateController()
     

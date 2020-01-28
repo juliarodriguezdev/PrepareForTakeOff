@@ -30,14 +30,15 @@ class WeatherTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
     
     func updateViews() {
         guard let weatherDisplay = weatherItem else { return }
-        dateLabel.text = weatherDisplay.timestampOfForecast.convertToRowTitle()
-        // weather == [Weather] - custom data type
+        dateLabel.text = "\(weatherDisplay.timestampOfForecast.converToSoleTime())"
         let weatherFromArray = (weatherDisplay.weather).first
+        let convertedTempInteger = Int(weatherDisplay.main.temp.rounded())
+        let convertedHumidityInt = Int(weatherDisplay.main.humidity.rounded())
         descriptionLabel.text = weatherFromArray?.description.capitalizingFirstletter()
         if let iconName = weatherFromArray?.icon {
             icon.image = UIImage(named: iconName)
@@ -50,13 +51,13 @@ class WeatherTableViewCell: UITableViewCell {
             
         }
         let pressureText = pressureinHG(pressure: weatherDisplay.main.pressure)
-        pressureLabel.text = "Pressure @ Sea: " + pressureText
+        pressureLabel.text = "Sea\nPressure\n" + pressureText
         
         let groundLevelText = pressureinHG(pressure: weatherDisplay.main.groundLevel)
-        groundlevelLabel.text = "Pressure @ Ground: " + groundLevelText
+        groundlevelLabel.text = "Ground\nPressure\n" + groundLevelText
         
-        temperatureLabel.text = "Temperature: \(weatherDisplay.main.temp) ºF"
-        humidityLabel.text = "Humidity: \(weatherDisplay.main.humidity) %"
+        temperatureLabel.text = "\(convertedTempInteger) ºF"
+        humidityLabel.text = "Humidity\n\(convertedHumidityInt) %"
         
         
         var windDegText : String = ""
@@ -100,7 +101,7 @@ class WeatherTableViewCell: UITableViewCell {
         default:
             print("No wind direction detected")
         }
-        windspeedLabel.text = "Wind: " + windDegText + " \(weatherDisplay.wind.speed) mph"
+        windspeedLabel.text = "Wind\n" + windDegText + " \(weatherDisplay.wind.speed) mph"
        
     }
 }

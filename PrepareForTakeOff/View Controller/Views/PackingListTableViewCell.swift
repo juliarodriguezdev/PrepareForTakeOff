@@ -46,9 +46,9 @@ class PackingListTableViewCell: UITableViewCell {
             if item?.packingItem == packingitem {
                 
                 if item?.isComplete == true {
-                    isCheckedButton.setImage(UIImage(named: "Packing_checkMark"), for: .normal)
+                    isCheckedButton.setImage(UIImage(named: "Outlined"), for: .normal)
                 } else {
-                    isCheckedButton.setImage(UIImage(named: "Packing_checkBox_rounded"), for: .normal)
+                    isCheckedButton.setImage(UIImage(named: "Outlined-1"), for: .normal)
                 }
             }
         }
@@ -59,7 +59,7 @@ class PackingListTableViewCell: UITableViewCell {
     }
     
     func updateCheckBox(item: PackingComponent) {
-        let imagename = item.isComplete ? "Packing_checkMark" : "Packing_checkBox_rounded"
+        let imagename = item.isComplete ? "Outlined" : "Outlined-1"
         isCheckedButton.setImage(UIImage(named: imagename), for: .normal)
     }
 

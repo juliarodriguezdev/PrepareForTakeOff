@@ -40,9 +40,8 @@ class DestinationInfoController {
         request.addValue(token, forHTTPHeaderField: tokenHeader)
         request.httpMethod = "GET"
         print(request)
-        
-        // URLSession
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+                
+         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
                 completion(nil)
@@ -122,6 +121,7 @@ class DestinationInfoController {
     
     func fetchDestinationImage(imageURL: Medium, completion: @escaping (UIImage?) -> Void) {
         guard let imageURL = URL(string: imageURL.urlAsString) else { return }
+        print(imageURL)
         
         URLSession.shared.dataTask(with: imageURL) { (data, _, error) in
             if let error = error {

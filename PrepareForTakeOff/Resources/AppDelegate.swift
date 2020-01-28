@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Notifications are not allowed by user 
             }
         }
+        let attributes = [NSAttributedString.Key.font: UIFont(name: FontNames.fingerPaintRegular, size: 16)]
+        UITabBarItem.appearance().setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
         
         return true
     }
@@ -92,4 +94,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

@@ -31,14 +31,14 @@ class DestinationTableViewCell: UITableViewCell {
     func updateViews() {
         guard let destinationInfo = destinationInfo else { return }
         nameLabel.text = destinationInfo.name
-        scoreLabel.text = "Score: " + String(format: "%.2f", destinationInfo.score)
+        //scoreLabel.text = "| Score: " + String(format: "%.2f", destinationInfo.score)
         snippetLabel.text = destinationInfo.snippet
         
         var typeName: String {
             let removeUnderScores = destinationInfo.type.replacingOccurrences(of: "_", with: " ")
-            return removeUnderScores
+            return removeUnderScores.capitalizingFirstletter()
         }
-        typeLabel.text = typeName
+        typeLabel.text = "\(typeName) | Score: " + String(format: "%.2f", destinationInfo.score)
         photosCollectionView.reloadData()
     }
     @IBAction func mapsButtonTapped(_ sender: UIButton) {

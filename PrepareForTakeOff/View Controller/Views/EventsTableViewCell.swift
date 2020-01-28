@@ -31,7 +31,7 @@ class EventsTableViewCell: UITableViewCell {
     @IBOutlet weak var venueNameLabel: UILabel!
     
     @IBOutlet weak var venueAddressLabel: UILabel!
-    
+     
     @IBOutlet weak var eventURLButton: UIButton!
     
     
@@ -60,8 +60,14 @@ class EventsTableViewCell: UITableViewCell {
             let trimmedString = placeHolderDescription.trimmingCharacters(in: .whitespacesAndNewlines)
             return trimmedString
         }
+        if filteredDescription.isEmpty {
+            descriptionLabel.isHidden = true
+        } else {
+            descriptionLabel.isHidden = false 
+            descriptionLabel.text = filteredDescription
+        }
         
-        descriptionLabel.text = filteredDescription
+    
         titleLabel.text = event.title
         cityRegionLabel.text = (event.city ?? "") + ", " + (event.regionName ?? "")
         
